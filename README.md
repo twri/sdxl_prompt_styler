@@ -26,3 +26,14 @@ Here's a template example from a JSON file:
     }
 ]
 ```
+
+### Installation
+
+To install and use the SDXL Prompt Styler nodes, follow these steps:
+
+1. Open a terminal or command line interface.
+2. Navigate to the `ComfyUI/custom_nodes/` directory.
+3. Run the following command:
+```git clone https://github.com/twri/sdxl_prompt_styler.git```
+
+This command clones the SDXL Prompt Styler repository into your ComfyUI/custom_nodes/ directory. You should now be able to access and use the nodes from this repository.
