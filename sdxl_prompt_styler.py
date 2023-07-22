@@ -66,10 +66,14 @@ class SDXLPromptStyler:
 
     @classmethod
     def INPUT_TYPES(self):
+        # Get current file's directory
         p = os.path.dirname(os.path.realpath(__file__))
+        # Construct 'sdxl_styles.json' path
         file_path = os.path.join(p, 'sdxl_styles.json')
 
+        # Read JSON from file
         self.json_data = read_json_file(file_path)
+        # Retrieve styles from JSON data
         styles = read_sdxl_styles(self.json_data)
         
         return {
@@ -87,8 +91,13 @@ class SDXLPromptStyler:
     CATEGORY = 'utils'
 
     def prompt_styler(self, text_positive, text_negative, style, log_prompt):
+        # Process and combine prompts in templates
+        # The function replaces the positive prompt placeholder in the template,
+        # and combines the negative prompt with the template's negative prompt, if they exist.
         positive_prompt, negative_prompt = read_sdxl_templates_replace_and_combine(self.json_data, style, text_positive, text_negative)
  
+        # If logging is enabled (log_prompt is set to "Yes"), 
+        # print the style, positive and negative text, and positive and negative prompts to the console
         if log_prompt == "Yes":
             print(f"style: {style}")
             print(f"text_positive: {text_positive}")
