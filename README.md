@@ -29,14 +29,18 @@ Template example from a JSON file:
 ]
 ```
 
-`style = "enhance"
+```python
+style = "enhance"
 positive_prompt = "a futuristic pop up tent in a forest"
-negative_prompt = "dark"`
+negative_prompt = "dark"
+```
 
 This will generate the following styled prompts as outputs:
 
-`breathtaking a futuristic pop up tent in a forest . award-winning, professional, highly detailed
-ugly, deformed, noisy, blurry, distorted, grainy, dark`
+```python
+breathtaking a futuristic pop up tent in a forest . award-winning, professional, highly detailed
+ugly, deformed, noisy, blurry, distorted, grainy, dark
+```
 
 ### Installation
 
