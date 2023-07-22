@@ -35,5 +35,17 @@ To install and use the SDXL Prompt Styler nodes, follow these steps:
 2. Navigate to the `ComfyUI/custom_nodes/` directory.
 3. Run the following command:
 ```git clone https://github.com/twri/sdxl_prompt_styler.git```
+4. Restart ComfyUI.
 
-This command clones the SDXL Prompt Styler repository into your ComfyUI/custom_nodes/ directory. You should now be able to access and use the nodes from this repository.
+This command clones the SDXL Prompt Styler repository into your `ComfyUI/custom_nodes/` directory. You should now be able to access and use the nodes from this repository.
+
+### Inputs
+
+* **text_positive** - text for the positive base prompt G
+* **text_negative** - text for the negative base prompt G
+* **log_prompt** - print inputs and outputs to stdout
+
+### Outputs
+
+* **positive_prompt_text_g** - combined prompt with style for positive promt G
+* **negative_prompt_text_g** - combined prompt with style for negative promt G
