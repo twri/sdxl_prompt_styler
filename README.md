@@ -10,7 +10,9 @@ The node also effectively manages negative prompts. If negative text is provided
 
 In the case where both negative text and the 'negative_prompt' field are present in the JSON template, the node merges them into a unified negative prompt. This flexibility enables the creation of a diverse and specific range of negative prompts.
 
-Here's a template example from a JSON file:
+### Usage Example with SDXL Prompt Styler
+
+Template example from a JSON file:
 
 ```json
 [
@@ -26,6 +28,15 @@ Here's a template example from a JSON file:
     }
 ]
 ```
+
+`style = "enhance"
+positive_prompt = "a futuristic pop up tent in a forest"
+negative_prompt = "dark"`
+
+This will generate the following styled prompts as outputs:
+
+`breathtaking a futuristic pop up tent in a forest . award-winning, professional, highly detailed
+ugly, deformed, noisy, blurry, distorted, grainy, dark`
 
 ### Installation
 
