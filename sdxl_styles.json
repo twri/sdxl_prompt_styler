@@ -343,5 +343,20 @@
         "name": "gen-dreamscape",
         "prompt": "dreamscape {prompt} . surreal, ethereal, dreamy, mysterious, fantasy, highly detailed",
         "negative_prompt": "realistic, concrete, ordinary, mundane"
+    },
+    {
+        "name": "gen-tilt-shift",
+        "prompt": "tilt-shift photo of {prompt} . Selective focus, miniature effect, blurred background, highly detailed, vibrant, perspective control",
+        "negative_prompt": "blurry, noisy, deformed, flat, low contrast, unrealistic, oversaturated, underexposed"
+    },
+    {
+        "name": "gen-hdr",
+        "prompt": "HDR photo of {prompt} . High dynamic range, vivid, rich details, clear shadows and highlights, realistic, intense, enhanced contrast, highly detailed",
+        "negative_prompt": "flat, low contrast, oversaturated, underexposed, overexposed, blurred, noisy"
+    },
+    {
+        "name": "gen-long-exposure",
+        "prompt": "long exposure photo of {prompt} . Blurred motion, streaks of light, surreal, dreamy, ghosting effect, highly detailed",
+        "negative_prompt": "static, noisy, deformed, shaky, abrupt, flat, low contrast"
     }
 ]
