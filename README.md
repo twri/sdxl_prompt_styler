@@ -37,7 +37,7 @@ negative_prompt = "dark"
 
 This will generate the following styled prompts as outputs:
 
-```python
+```
 breathtaking a futuristic pop up tent in a forest . award-winning, professional, highly detailed
 ugly, deformed, noisy, blurry, distorted, grainy, dark
 ```
