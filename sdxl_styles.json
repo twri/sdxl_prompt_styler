@@ -87,6 +87,6 @@
     {
         "name": "texture",
         "prompt": "texture {prompt} top down close-up",
-        "negative_prompt": "ugly, deformed, noisy, blurry "
+        "negative_prompt": "ugly, deformed, noisy, blurry"
     }
 ]
