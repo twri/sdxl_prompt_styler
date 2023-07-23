@@ -5,6 +5,21 @@
         "negative_prompt": ""
     },
     {
+        "name": "sai-3d-model",
+        "prompt": "professional 3d model {prompt} . octane render, highly detailed, volumetric, dramatic lighting",
+        "negative_prompt": "ugly, deformed, noisy, low poly, blurry, painting"
+    },
+    {
+        "name": "sai-analog film",
+        "prompt": "analog film photo {prompt} . faded film, desaturated, 35mm photo, grainy, vignette, vintage, Kodachrome, Lomography, stained, highly detailed, found footage",
+        "negative_prompt": "painting, drawing, illustration, glitch, deformed, mutated, cross-eyed, ugly, disfigured"
+    },
+    {
+        "name": "sai-anime",
+        "prompt": "anime artwork {prompt} . anime style, key visual, vibrant, studio anime,  highly detailed",
+        "negative_prompt": "photo, deformed, black and white, realism, disfigured, low contrast"
+    },
+    {
         "name": "sai-cinematic",
         "prompt": "cinematic film still {prompt} . shallow depth of field, vignette, highly detailed, high budget, bokeh, cinemascope, moody, epic, gorgeous, film grain, grainy",
         "negative_prompt": "anime, cartoon, graphic, text, painting, crayon, graphite, abstract, glitch, deformed, mutated, ugly, disfigured"
@@ -503,20 +518,5 @@
         "name": "photo-tilt-shift",
         "prompt": "tilt-shift photo of {prompt} . Selective focus, miniature effect, blurred background, highly detailed, vibrant, perspective control",
         "negative_prompt": "blurry, noisy, deformed, flat, low contrast, unrealistic, oversaturated, underexposed"
-    },
-    {
-        "name": "sai-3d-model",
-        "prompt": "professional 3d model {prompt} . octane render, highly detailed, volumetric, dramatic lighting",
-        "negative_prompt": "ugly, deformed, noisy, low poly, blurry, painting"
-    },
-    {
-        "name": "sai-analog film",
-        "prompt": "analog film photo {prompt} . faded film, desaturated, 35mm photo, grainy, vignette, vintage, Kodachrome, Lomography, stained, highly detailed, found footage",
-        "negative_prompt": "painting, drawing, illustration, glitch, deformed, mutated, cross-eyed, ugly, disfigured"
-    },
-    {
-        "name": "sai-anime",
-        "prompt": "anime artwork {prompt} . anime style, key visual, vibrant, studio anime,  highly detailed",
-        "negative_prompt": "photo, deformed, black and white, realism, disfigured, low contrast"
     }
 ]
