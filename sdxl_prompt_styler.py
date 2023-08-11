@@ -2,33 +2,70 @@ import json
 import os
 
 def read_json_file(file_path):
+    """
+    Reads the content of a JSON file and returns it as a Python data structure.
+    """
+    if not os.access(file_path, os.R_OK):
+        print(f"Warning: No read permissions for file {file_path}")
+        return None
+
     try:
-        # Open file, load JSON content into python dictionary, and return it.
-        with open(file_path, 'r') as file:
-            json_data = json.load(file)
-            return json_data
+        with open(file_path, 'r', encoding='utf-8') as file:
+            content = json.load(file)
+            # Check if the content matches the expected format.
+            if not all(['name' in item and 'prompt' in item and 'negative_prompt' in item for item in content]):
+                print(f"Warning: Invalid content in file {file_path}")
+                return None
+            return content
     except Exception as e:
-        print(f"An error occurred: {str(e)}")
+        print(f"An error occurred while reading {file_path}: {str(e)}")
+        return None
 
 
 def read_sdxl_styles(json_data):
-    # Check that data is a list
+    """
+    Extracts style names from the provided data.
+    """
     if not isinstance(json_data, list):
         print("Error: input data must be a list")
-        return None
+        return []
 
-    names = []
+    return [item['name'] for item in json_data if isinstance(item, dict) and 'name' in item]
 
-    # Iterate over each item in the data list
-    for item in json_data:
-        # Check that the item is a dictionary
-        if isinstance(item, dict):
-            # Check that 'name' is a key in the dictionary
-            if 'name' in item:
-                # Append the value of 'name' to the names list
-                names.append(item['name'])
+def get_all_json_files(directory):
+    """
+    Retrieves all JSON files present in the specified directory.
+    """
+    return [os.path.join(directory, file) for file in os.listdir(directory) if file.endswith('.json') and os.path.isfile(os.path.join(directory, file))]
 
-    return names
+
+def load_styles_from_directory(directory):
+    """
+    Loads style names and combined data from all JSON files in the directory.
+    Ensures style names are unique by appending a suffix to duplicates.
+    """
+    json_files = get_all_json_files(directory)
+    combined_data = []
+    seen = set()
+
+    for json_file in json_files:
+        json_data = read_json_file(json_file)
+        if json_data:
+            for item in json_data:
+                original_style = item['name']
+                style = original_style
+                suffix = 1
+                while style in seen:
+                    style = f"{original_style}_{suffix}"
+                    suffix += 1
+                item['name'] = style
+                seen.add(style)
+                combined_data.append(item)
+
+    unique_style_names = [item['name'] for item in combined_data if isinstance(item, dict) and 'name' in item]
+    
+    return combined_data, unique_style_names
+
 
 def read_sdxl_templates_replace_and_combine(json_data, template_name, positive_prompt, negative_prompt):
     try:
@@ -67,15 +104,8 @@ class SDXLPromptStyler:
 
     @classmethod
     def INPUT_TYPES(self):
-        # Get current file's directory
-        p = os.path.dirname(os.path.realpath(__file__))
-        # Construct 'sdxl_styles.json' path
-        file_path = os.path.join(p, 'sdxl_styles.json')
-
-        # Read JSON from file
-        self.json_data = read_json_file(file_path)
-        # Retrieve styles from JSON data
-        styles = read_sdxl_styles(self.json_data)
+        current_directory = os.path.dirname(os.path.realpath(__file__))
+        self.json_data, styles = load_styles_from_directory(current_directory)
         
         return {
             "required": {
