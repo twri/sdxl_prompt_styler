@@ -67,7 +67,7 @@ def load_styles_from_directory(directory):
     return combined_data, unique_style_names
 
 
-def read_sdxl_templates_replace_and_combine(json_data, template_name, positive_prompt, negative_prompt):
+def read_sdxl_templates_replace_and_combine(json_data, template_name, positive_prompt_g, positive_prompt_l, negative_prompt):
     try:
         # Check if json_data is a list
         if not isinstance(json_data, list):
@@ -80,7 +80,17 @@ def read_sdxl_templates_replace_and_combine(json_data, template_name, positive_p
             
             # Replace {prompt} in the matching template
             if template['name'] == template_name:
-                positive_prompt = template['prompt'].replace('{prompt}', positive_prompt)
+                if " . " in template['prompt']:
+                    template_prompt_g, template_prompt_l = template['prompt'].split(" . ", 1)
+                else:
+                    template_prompt_g = template['prompt']
+                    template_prompt_l = ""
+
+                positive_prompt_g = template_prompt_g.replace('{prompt}', positive_prompt_g)
+                if '{prompt}' in template_prompt_l:
+                    positive_prompt_l = template_prompt_l.replace('{prompt}', positive_prompt_l)
+                else:
+                    positive_prompt_l = template_prompt_l+' '+positive_prompt_l
                 
                 json_negative_prompt = template.get('negative_prompt', "")
                 if negative_prompt:
@@ -88,7 +98,7 @@ def read_sdxl_templates_replace_and_combine(json_data, template_name, positive_p
                 else:
                     negative_prompt = json_negative_prompt
                 
-                return positive_prompt, negative_prompt
+                return positive_prompt_g, positive_prompt_l, negative_prompt
 
         # If function hasn't returned yet, no matching template was found
         raise ValueError(f"No template found with name '{template_name}'.")
@@ -109,34 +119,37 @@ class SDXLPromptStyler:
         
         return {
             "required": {
-                "text_positive": ("STRING", {"default": "", "multiline": True}),
+                "text_positive_g": ("STRING", {"default": "", "multiline": True}),
+                "text_positive_l": ("STRING", {"default": "", "multiline": True}),
                 "text_negative": ("STRING", {"default": "", "multiline": True}),
                 "style": ((styles), ),
                 "log_prompt": (["No", "Yes"], {"default":"No"}),
             },
         }
 
-    RETURN_TYPES = ('STRING','STRING',)
-    RETURN_NAMES = ('positive_prompt_text_g','negative_prompt_text_g',)
+    RETURN_TYPES = ('STRING','STRING','STRING')
+    RETURN_NAMES = ('positive_prompt_text_g','positive_prompt_text_l','negative_prompt_text_g',)
     FUNCTION = 'prompt_styler'
     CATEGORY = 'utils'
 
-    def prompt_styler(self, text_positive, text_negative, style, log_prompt):
+    def prompt_styler(self, text_positive_g, text_positive_l, text_negative, style, log_prompt):
         # Process and combine prompts in templates
         # The function replaces the positive prompt placeholder in the template,
         # and combines the negative prompt with the template's negative prompt, if they exist.
-        positive_prompt, negative_prompt = read_sdxl_templates_replace_and_combine(self.json_data, style, text_positive, text_negative)
+        positive_prompt_g, positive_prompt_l, negative_prompt = read_sdxl_templates_replace_and_combine(self.json_data, style, text_positive_g, text_positive_l, text_negative)
  
         # If logging is enabled (log_prompt is set to "Yes"), 
         # print the style, positive and negative text, and positive and negative prompts to the console
         if log_prompt == "Yes":
             print(f"style: {style}")
-            print(f"text_positive: {text_positive}")
+            print(f"text_positive_g: {text_positive_g}")
+            print(f"text_positive_l: {text_positive_l}")
             print(f"text_negative: {text_negative}")
-            print(f"positive_prompt: {positive_prompt}")
+            print(f"positive_prompt_g: {positive_prompt_g}")
+            print(f"positive_prompt_l: {positive_prompt_l}")
             print(f"negative_prompt: {negative_prompt}")
 
-        return positive_prompt, negative_prompt
+        return positive_prompt_g, positive_prompt_l, negative_prompt
 
 
 NODE_CLASS_MAPPINGS = {
