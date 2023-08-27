@@ -207,11 +207,9 @@ class SDXLPromptStyler:
         
         return {
             "required": {
-                "text_positive_g": ("STRING", {"default": "", "multiline": True}),
-                "text_positive_l": ("STRING", {"default": "", "multiline": True}),
+                "text_positive": ("STRING", {"default": "", "multiline": True}),
                 "text_negative": ("STRING", {"default": "", "multiline": True}),
                 "style": ((styles), ),
-                "split_style": (["L only", "G only", "Both"], {"default":"L only"}),
                 "log_prompt": (["No", "Yes"], {"default":"No"}),
             },
         }
@@ -221,7 +219,7 @@ class SDXLPromptStyler:
     FUNCTION = 'prompt_styler'
     CATEGORY = 'utils'
 
-    def prompt_styler(self, text_positive_g, text_positive_l, text_negative, style, split_style, log_prompt):
+    def prompt_styler(self, text_positive, text_negative, style, log_prompt):
         # Process and combine prompts in templates
         # The function replaces the positive prompt placeholder in the template,
         # and combines the negative prompt with the template's negative prompt, if they exist.
@@ -231,8 +229,7 @@ class SDXLPromptStyler:
         # print the style, positive and negative text, and positive and negative prompts to the console
         if log_prompt == "Yes":
             print(f"style: {style}")
-            print(f"text_positive_g: {text_positive_g}")
-            print(f"text_positive_l: {text_positive_l}")
+            print(f"text_positive: {text_positive}")
             print(f"text_negative: {text_negative}")
             print(f"text_positive_styled: {text_positive_styled}")
             print(f"text_negative_styled: {text_negative_styled}")
