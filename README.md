@@ -17,7 +17,7 @@ This section details the updates and new features committed over time, organized
 
 #### New Features
 
-* **SDXL Prompt Styler Advanced**: New node for more elaborate workflows with lingustic and supportive terms. Selector to change the split behavior of the negative prompt. Special thanks to WinstonWoof and Danamir for their contributions!
+* **SDXL Prompt Styler Advanced**: New node for more elaborate workflows with lingustic and supportive terms. Selector to change the split behavior of the negative prompt. Special thanks to @WinstonWoof and @Danamir for their contributions!
 * **SDXL Prompt Styler**: Minor changes to output names and printed log prompt.
 
 ### Commit date (2023-08-11)
