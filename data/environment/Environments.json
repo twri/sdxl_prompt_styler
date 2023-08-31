@@ -1,0 +1,57 @@
+[
+    {
+        "name": "No option",
+        "prompt": "{prompt}",
+        "negative_prompt": ""
+    },
+    {
+        "name": "Beach",
+        "prompt": "beach  {prompt}",
+        "negative_prompt": "forest"
+    },
+    {
+        "name": "Desert",
+        "prompt": "desert  {prompt}",
+        "negative_prompt": "beach"
+    },
+    {
+        "name": "Forest",
+        "prompt": "forest  {prompt}",
+        "negative_prompt": "city"
+    },
+    {
+        "name": "Indoor",
+        "prompt": "indoor  {prompt}",
+        "negative_prompt": "outdoor"
+    },
+    {
+        "name": "Mountain",
+        "prompt": "mountain  {prompt}",
+        "negative_prompt": "valley"
+    },
+    {
+        "name": "Outdoor",
+        "prompt": "outdoor  {prompt}",
+        "negative_prompt": "indoor"
+    },
+    {
+        "name": "Rural",
+        "prompt": "rural  {prompt}",
+        "negative_prompt": "urban"
+    },
+    {
+        "name": "Snow",
+        "prompt": "snow  {prompt}",
+        "negative_prompt": "summer"
+    },
+    {
+        "name": "Studio",
+        "prompt": "studio  {prompt}",
+        "negative_prompt": "indoor"
+    },
+    {
+        "name": "Urban",
+        "prompt": "urban  {prompt}",
+        "negative_prompt": "rural"
+    }
+]

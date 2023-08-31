@@ -1,244 +1,106 @@
 import json
-import os
-
-def read_json_file(file_path):
-    """
-    Reads a JSON file's content and returns it.
-    Ensures content matches the expected format.
-    """
-    if not os.access(file_path, os.R_OK):
-        print(f"Warning: No read permissions for file {file_path}")
-        return None
-
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            content = json.load(file)
-            # Check if the content matches the expected format.
-            if not all(['name' in item and 'prompt' in item and 'negative_prompt' in item for item in content]):
-                print(f"Warning: Invalid content in file {file_path}")
-                return None
-            return content
-    except Exception as e:
-        print(f"An error occurred while reading {file_path}: {str(e)}")
-        return None
+import pathlib
+from collections import defaultdict
 
 
-def read_sdxl_styles(json_data):
-    """
-    Returns style names from the provided JSON data.
-    """
-    if not isinstance(json_data, list):
-        print("Error: input data must be a list")
-        return []
+class Template:
+    def __init__(self, prompt, negative_prompt, **kwargs):
+        self.prompt = prompt
+        self.negative_prompt = negative_prompt
 
-    return [item['name'] for item in json_data if isinstance(item, dict) and 'name' in item]
+    def split_template_advanced(self):
+        if "{prompt} ." in self.prompt:
+            template_prompt_g, template_prompt_l = self.prompt.split("{prompt} .", 1)
+            template_prompt_g = template_prompt_g.strip() + " {prompt}"
+            template_prompt_l = template_prompt_l.strip()
+        else:
+            template_prompt_g = self.prompt
+            template_prompt_l = ""
 
-def get_all_json_files(directory):
-    """
-    Returns all JSON files from the specified directory.
-    """
-    return [os.path.join(directory, file) for file in os.listdir(directory) if file.endswith('.json') and os.path.isfile(os.path.join(directory, file))]
+        return template_prompt_g, template_prompt_l
 
+    def replace_prompts(self, positive_prompt, negative_prompt):
+        positive_result = self.prompt.replace('{prompt}', positive_prompt)
+        negative_result = ', '.join(x for x in (self.negative_prompt, negative_prompt) if x)
+        return positive_result, negative_result
 
-def load_styles_from_directory(directory):
-    """
-    Loads styles from all JSON files in the directory.
-    Renames duplicate style names by appending a suffix.
-    """
-    json_files = get_all_json_files(directory)
-    combined_data = []
-    seen = set()
+    def replace_prompts_advanced(self, positive_prompt_g, positive_prompt_l, negative_prompt, negative_prompt_to):
+        template_prompt_g, template_prompt_l_template = self.split_template_advanced()
+        text_g_positive = template_prompt_g.replace("{prompt}", positive_prompt_g)
+        text_l_positive = ', '.join(x for x in (template_prompt_l_template, positive_prompt_l) if x)
+        text_positive = f"{text_g_positive} . {text_l_positive}" if text_l_positive else text_g_positive
+        text_negative = ', '.join(x for x in (self.negative_prompt, negative_prompt) if x)
 
-    for json_file in json_files:
-        json_data = read_json_file(json_file)
-        if json_data:
-            for item in json_data:
-                original_style = item['name']
-                style = original_style
-                suffix = 1
-                while style in seen:
-                    style = f"{original_style}_{suffix}"
-                    suffix += 1
-                item['name'] = style
-                seen.add(style)
-                combined_data.append(item)
+        text_g_negative = ""
+        if negative_prompt_to in ("Both", "G only"):
+            text_g_negative = text_negative
 
-    unique_style_names = [item['name'] for item in combined_data if isinstance(item, dict) and 'name' in item]
-    
-    return combined_data, unique_style_names
+        text_l_negative = ""
+        if negative_prompt_to in ("Both", "L only"):
+            text_l_negative = text_negative
+
+        return text_g_positive, text_l_positive, text_positive, text_g_negative, text_l_negative, text_negative
 
 
-def validate_json_data(json_data):
-    """
-    Validates the structure of the JSON data.
-    """
-    if not isinstance(json_data, list):
-        return False
-    for template in json_data:
-        if 'name' not in template or 'prompt' not in template:
-            return False
-    return True
+class StylerData:
+    def __init__(self, datadir=None):
+        self._data = defaultdict(dict)
+        if datadir is None:
+            datadir = pathlib.Path(__file__).parent / 'data'
 
-def find_template_by_name(json_data, template_name):
-    """
-    Returns a template from the JSON data by name or None if not found.
-    """
-    for template in json_data:
-        if template['name'] == template_name:
-            return template
-    return None
+        for j in datadir.glob('*/*.json'):
+            try:
+                with j.open('r') as f:
+                    content = json.load(f)
+                    group = j.parent.name
+                    for template in content:
+                        self._data[group][template['name']] = Template(**template)
+            except PermissionError:
+                print(f"Warning: No read permissions for file {j}")
+            except KeyError:
+                print(f"Warning: Malformed data in {j}")
 
-def split_template_advanced(template: str) -> tuple:
-    """
-    Splits a template into two parts based on a specific pattern.
-    """
-    if "{prompt} ." in template:
-        template_prompt_g, template_prompt_l = template.split("{prompt} .", 1)
-        template_prompt_g = template_prompt_g.strip() + " {prompt}"
-        template_prompt_l = template_prompt_l.strip()
-    else:
-        template_prompt_g = template
-        template_prompt_l = ""
+    def __getitem__(self, item):
+        return self._data[item]
 
-    return template_prompt_g, template_prompt_l
+    def keys(self):
+        return self._data.keys()
 
-def replace_prompts_in_template(template, positive_prompt, negative_prompt):
-    """
-    Replace the placeholders in a given template with the provided prompts.
-    
-    Args:
-    - template (dict): The template containing prompt placeholders.
-    - positive_prompt (str): The positive prompt to replace '{prompt}' in the template.
-    - negative_prompt (str): The negative prompt to be combined with any existing negative prompt in the template.
 
-    Returns:
-    - tuple: A tuple containing the replaced positive and negative prompts.
-    """
-    positive_result = template['prompt'].replace('{prompt}', positive_prompt)
-
-    json_negative_prompt = template.get('negative_prompt', "")
-    negative_result = f"{json_negative_prompt}, {negative_prompt}" if json_negative_prompt and negative_prompt else json_negative_prompt or negative_prompt
-
-    return positive_result, negative_result
-
-def replace_prompts_in_template_advanced(template, positive_prompt_g, positive_prompt_l, negative_prompt, negative_prompt_to):
-    """
-    Replace the placeholders in a given template with the provided prompts and split them accordingly.
-    
-    Args:
-    - template (dict): The template containing prompt placeholders.
-    - positive_prompt_g (str): The main positive prompt to replace '{prompt}' in the template.
-    - positive_prompt_l (str): The auxiliary positive prompt to be combined in a specific manner.
-    - negative_prompt (str): The negative prompt to be combined with any existing negative prompt in the template.
-    - negative_prompt_to (str): The negative prompt destination {Both, G only, L only}.
-
-    Returns:
-    - tuple: A tuple containing the replaced main positive, auxiliary positive, combined positive,  main negative, auxiliary negative, and negative prompts.
-    """
-    template_prompt_g, template_prompt_l_template = split_template_advanced(template['prompt'])
-
-    text_g_positive = template_prompt_g.replace("{prompt}", positive_prompt_g)
-
-    text_l_positive = f"{template_prompt_l_template}, {positive_prompt_l}" if template_prompt_l_template and positive_prompt_l else template_prompt_l_template or positive_prompt_l
-
-    text_positive = f"{text_g_positive} . {text_l_positive}" if text_l_positive else text_g_positive
-
-    json_negative_prompt = template.get('negative_prompt', "")
-    text_negative = f"{json_negative_prompt}, {negative_prompt}" if json_negative_prompt and negative_prompt else json_negative_prompt or negative_prompt
-
-    text_g_negative = ""
-    if negative_prompt_to in ("Both", "G only"):
-        text_g_negative = text_negative
-
-    text_l_negative = ""
-    if negative_prompt_to in ("Both", "L only"):
-        text_l_negative = text_negative
-
-    return text_g_positive, text_l_positive, text_positive, text_g_negative, text_l_negative, text_negative
-
-def read_sdxl_templates_replace_and_combine(json_data, template_name, positive_prompt, negative_prompt):
-    """
-    Find a specific template by its name, then replace and combine its placeholders with the provided prompts.
-    
-    Args:
-    - json_data (list): The list of templates.
-    - template_name (str): The name of the desired template.
-    - positive_prompt (str): The positive prompt to replace placeholders.
-    - negative_prompt (str): The negative prompt to be combined.
-
-    Returns:
-    - tuple: A tuple containing the replaced and combined positive and negative prompts.
-    """
-    if not validate_json_data(json_data):
-        return positive_prompt, negative_prompt
-
-    template = find_template_by_name(json_data, template_name)
-
-    if template:
-        return replace_prompts_in_template(template, positive_prompt, negative_prompt)
-    else:
-        return positive_prompt, negative_prompt
-    
-def read_sdxl_templates_replace_and_combine_advanced(json_data, template_name, positive_prompt_g, positive_prompt_l, negative_prompt, negative_prompt_to):
-    """
-    Find a specific template by its name, then replace and combine its placeholders with the provided prompts in an advanced manner.
-    
-    Args:
-    - json_data (list): The list of templates.
-    - template_name (str): The name of the desired template.
-    - positive_prompt_g (str): The main positive prompt.
-    - positive_prompt_l (str): The auxiliary positive prompt.
-    - negative_prompt (str): The negative prompt to be combined.
-    - negative_prompt_to (str): The negative prompt destination {Both, G only, L only}.
-
-    Returns:
-    - tuple: A tuple containing the replaced and combined main positive, auxiliary positive, combined positive, main negative, auxiliary negative, and negative prompts.
-    """
-    if not validate_json_data(json_data):
-        return positive_prompt_g, positive_prompt_l, f"{positive_prompt_g} . {positive_prompt_l}", negative_prompt, negative_prompt, negative_prompt
-
-    template = find_template_by_name(json_data, template_name)
-
-    if template:
-        return replace_prompts_in_template_advanced(template, positive_prompt_g, positive_prompt_l, negative_prompt, negative_prompt_to)
-    else:
-        return positive_prompt_g, positive_prompt_l, f"{positive_prompt_g} . {positive_prompt_l}", negative_prompt, negative_prompt, negative_prompt
+styler_data = StylerData()
 
 
 class SDXLPromptStyler:
-
-    def __init__(self):
-        pass
+    menus = ()
 
     @classmethod
-    def INPUT_TYPES(self):
-        current_directory = os.path.dirname(os.path.realpath(__file__))
-        self.json_data, styles = load_styles_from_directory(current_directory)
-        
-        return {
+    def INPUT_TYPES(cls):
+        menus = {menu: (list(styler_data[menu].keys()), ) for menu in cls.menus}
+
+        inputs = {
             "required": {
                 "text_positive": ("STRING", {"default": "", "multiline": True}),
                 "text_negative": ("STRING", {"default": "", "multiline": True}),
-                "style": ((styles), ),
-                "log_prompt": (["No", "Yes"], {"default":"No"}),
+                **menus,
+                "log_prompt": ("BOOLEAN", {"default": True, "label_on": "Yes", "label_off": "No"}),
             },
         }
+
+        return inputs
 
     RETURN_TYPES = ('STRING','STRING',)
     RETURN_NAMES = ('text_positive','text_negative',)
     FUNCTION = 'prompt_styler'
-    CATEGORY = 'utils'
+    CATEGORY = 'ali1234/stylers'
 
-    def prompt_styler(self, text_positive, text_negative, style, log_prompt):
-        # Process and combine prompts in templates
-        # The function replaces the positive prompt placeholder in the template,
-        # and combines the negative prompt with the template's negative prompt, if they exist.
-        text_positive_styled, text_negative_styled = read_sdxl_templates_replace_and_combine(self.json_data, style, text_positive, text_negative)
+    def prompt_styler(self, text_positive, text_negative, log_prompt, **kwargs):
+        text_positive_styled, text_negative_styled = text_positive, text_negative
+        for menu, selection in kwargs.items():
+            text_positive_styled, text_negative_styled = styler_data[menu][selection].replace_prompts(text_positive_styled, text_negative_styled)
  
-        # If logging is enabled (log_prompt is set to "Yes"), 
-        # print the style, positive and negative text, and positive and negative prompts to the console
-        if log_prompt == "Yes":
-            print(f"style: {style}")
+        if log_prompt:
+            for menu, selection in kwargs.items():
+                print(f"{menu}: {selection}")
             print(f"text_positive: {text_positive}")
             print(f"text_negative: {text_negative}")
             print(f"text_positive_styled: {text_positive_styled}")
@@ -247,41 +109,37 @@ class SDXLPromptStyler:
         return text_positive_styled, text_negative_styled
     
 class SDXLPromptStylerAdvanced:
-
-    def __init__(self):
-        pass
+    menus = () # when we subclass, we will put the list of menus (directories) here
 
     @classmethod
-    def INPUT_TYPES(self):
-        current_directory = os.path.dirname(os.path.realpath(__file__))
-        self.json_data, styles = load_styles_from_directory(current_directory)
+    def INPUT_TYPES(cls):
+        menus = {menu: (list(styler_data[menu].keys()), ) for menu in cls.menus}
         
         return {
             "required": {
                 "text_positive_g": ("STRING", {"default": "", "multiline": True}),
                 "text_positive_l": ("STRING", {"default": "", "multiline": True}),
                 "text_negative": ("STRING", {"default": "", "multiline": True}),
-                "style": ((styles), ),
+                **menus,
                 "negative_prompt_to": (["Both", "G only", "L only"], {"default":"Both"}),
-                "log_prompt": (["No", "Yes"], {"default":"No"}),
+                "log_prompt": ("BOOLEAN", {"default": True, "label_on": "Yes", "label_off": "No"}),
             },
         }
 
     RETURN_TYPES = ('STRING','STRING','STRING','STRING','STRING','STRING',)
     RETURN_NAMES = ('text_positive_g','text_positive_l','text_positive','text_negative_g','text_negative_l','text_negative',)
     FUNCTION = 'prompt_styler_advanced'
-    CATEGORY = 'utils'
+    CATEGORY = 'ali1234/stylers'
 
-    def prompt_styler_advanced(self, text_positive_g, text_positive_l, text_negative, style, negative_prompt_to, log_prompt):
-        # Process and combine prompts in templates
-        # The function replaces the positive prompt placeholder in the template,
-        # and combines the negative prompt with the template's negative prompt, if they exist.
-        text_positive_g_styled, text_positive_l_styled, text_positive_styled, text_negative_g_styled, text_negative_l_styled, text_negative_styled = read_sdxl_templates_replace_and_combine_advanced(self.json_data, style, text_positive_g, text_positive_l, text_negative, negative_prompt_to)
- 
-        # If logging is enabled (log_prompt is set to "Yes"), 
-        # print the style, positive and negative text, and positive and negative prompts to the console
-        if log_prompt == "Yes":
-            print(f"style: {style}")
+    def prompt_styler_advanced(self, text_positive_g, text_positive_l, text_negative, negative_prompt_to, log_prompt, **kwargs):
+        text_positive_g_styled, text_positive_l_styled, text_negative_styled = text_positive_g, text_positive_l, text_negative
+        text_positive_styled, text_negative_g_styled, text_negative_l_styled = "", "", ""
+        for menu, selection in kwargs.items():
+            text_positive_g_styled, text_positive_l_styled, text_positive_styled, text_negative_g_styled, text_negative_l_styled, text_negative_styled = styler_data[menu][selection].replace_prompts_advanced(text_positive_l_styled, text_positive_g_styled, text_negative_styled, negative_prompt_to)
+
+        if log_prompt:
+            for menu, selection in kwargs.items():
+                print(f"{menu}: {selection}")
             print(f"text_positive_g: {text_positive_g}")
             print(f"text_positive_l: {text_positive_l}")
             print(f"text_negative: {text_negative}")
@@ -295,12 +153,43 @@ class SDXLPromptStylerAdvanced:
         return text_positive_g_styled, text_positive_l_styled, text_positive_styled, text_negative_g_styled, text_negative_l_styled, text_negative_styled
 
 
+NODES = {
+    # define your nodes here
+    # first the friendly name, then a sequence of strings
+    # corresponding to subdirectories of the data dir.
+
+    # individual stylers have one menu item
+    # build them automatically from the scanned directories
+    **{f'{name.title()} Styler': (name, ) for name in styler_data.keys()},
+
+    # alternatively you can list every single-menu node like this:
+    # 'Camera Styler': ('camera', ),
+    # etc...
+
+    # perfection styler has everything except artist and milehigh
+    # we can define it by excluding those
+    # downside of this method is you have no control over the order
+    #'Perfection Styler': [x for x in styler_data.keys() if x not in ('artist', 'milehigh')],
+
+    # alternatively define it manually, and you can reorder the items
+    'Perfection Styler': (
+        'camera', 'composition', 'depth', 'environment', 'filter',
+        'focus', 'lighting', 'mood', 'subject', 'theme', 'timeofday'
+    ),
+}
+
+for k, v in NODES.items():
+    assert not isinstance(v, str), f"Error: {k} has a string instead of a sequence for its menu list. Did you forget a comma?"
+
+
+# now we subclass the base node classes dynamically using 3-arg type
+
 NODE_CLASS_MAPPINGS = {
-    "SDXLPromptStyler": SDXLPromptStyler,
-    "SDXLPromptStylerAdvanced": SDXLPromptStylerAdvanced,
+    **{name.replace(' ', ''): type(name.replace(' ', ''), (SDXLPromptStyler, ), {'menus': menus}) for name, menus in NODES.items()},
+    **{name.replace(' ', '') + 'Advanced': type(name.replace(' ', '')+'Advanced', (SDXLPromptStylerAdvanced, ), {'menus': menus}) for name, menus in NODES.items()},
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "SDXLPromptStyler": "SDXL Prompt Styler",
-    "SDXLPromptStylerAdvanced": "SDXL Prompt Styler Advanced",
+    **{name.replace(' ', ''): name for name in NODES.keys()},
+    **{name.replace(' ', '') + 'Advanced': name + ' (Advanced)' for name in NODES.keys()},
 }

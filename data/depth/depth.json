@@ -1,0 +1,102 @@
+[
+    {
+        "name": "No option",
+        "prompt": "{prompt}",
+        "negative_prompt": ""
+    },
+    {
+        "name": "Architecture Depth of Field",
+        "prompt": "(f_stop 11.0), (focal_length 35.0) f/11, 24mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0)"
+    },
+    {
+        "name": "Close-Up Depth of Field",
+        "prompt": "(f_stop 4.0), (focal_length 60.0) f/4, 60mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0)"
+    },
+    {
+        "name": "Creative or Abstract Depth of Field",
+        "prompt": "(f_stop 2.0), (focal_length 50.0) f/2, 50mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0)"
+    },
+    {
+        "name": "Deep Depth of Field",
+        "prompt": "(f_stop 11.0), (focal_length 18.0) f/11, 18mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0)"
+    },
+    {
+        "name": "Environmental Portraits Depth of Field",
+        "prompt": "(f_stop 5.6), (focal_length 35.0) f/5.6, 35mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0)"
+    },
+    {
+        "name": "Extreme Shallow Depth of Field",
+        "prompt": "(f_stop 1.2), (focal_length 85.0) f/1.2, 85mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 22.0), (focal_length 14.0)"
+    },
+    {
+        "name": "Landscape Depth of Field",
+        "prompt": "(f_stop 16.0), (focal_length 35.0) f/16, 18mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0)"
+    },
+    {
+        "name": "Limited Depth of Field",
+        "prompt": "(f_stop None), (focal_length None) f/2.8, macro lens  {prompt}",
+        "negative_prompt": "(f_stop None), (focal_length None)"
+    },
+    {
+        "name": "Macro Depth of Field",
+        "prompt": "(f_stop None), (focal_length None) f/8, macro lens  {prompt}",
+        "negative_prompt": "(f_stop None), (focal_length None)"
+    },
+    {
+        "name": "Moderate Depth of Field",
+        "prompt": "(f_stop 5.6), (focal_length 28.0) f/5.6, 28mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0)"
+    },
+    {
+        "name": "Moderate Shallow Depth of Field",
+        "prompt": "(f_stop 4.0), (focal_length 35.0) f/4, 35mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0)"
+    },
+    {
+        "name": "Night Photography Depth of Field",
+        "prompt": "(f_stop 2.8), (focal_length 35.0) f/2.8, 35mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0)"
+    },
+    {
+        "name": "Panoramic Depth of Field",
+        "prompt": "(f_stop None), (focal_length None) f/16, wide-angle lens  {prompt}",
+        "negative_prompt": "(f_stop None), (focal_length None)"
+    },
+    {
+        "name": "Slightly Deep Depth of Field",
+        "prompt": "(f_stop 8.0), (focal_length 24.0) f/8, 24mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0)"
+    },
+    {
+        "name": "Still Life Depth of Field",
+        "prompt": "(f_stop 5.6), (focal_length 50.0) f/5.6, 50mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0)"
+    },
+    {
+        "name": "Street Photography Depth of Field",
+        "prompt": "(f_stop 8.0), (focal_length 85.0) f/8, 35mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0)"
+    },
+    {
+        "name": "Subject in Motion Depth of Field",
+        "prompt": "(f_stop 4.0), (focal_length 24.0) f/4, 24mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0)"
+    },
+    {
+        "name": "Very Deep Depth of Field",
+        "prompt": "(f_stop 16.0), (focal_length 14.0) f/16, 14mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 85.0)"
+    },
+    {
+        "name": "Very Shallow Depth of Field",
+        "prompt": "(f_stop 1.8), (focal_length 50.0) f/1.8, 50mm focal length  {prompt}",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0)"
+    }
+]
