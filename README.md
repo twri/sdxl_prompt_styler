@@ -17,7 +17,7 @@ This section details the updates and new features committed over time, organized
 
 #### New Features
 
-* **SDXL Prompt Styler Advanced**: New node for more elaborate workflows with lingustic and supportive terms. Selector to change the split behavior of the negative prompt. Special thanks to @WinstonWoof and @Danamir for their contributions!
+* **SDXL Prompt Styler Advanced**: New node for more elaborate workflows with linguistic and supportive terms. Selector to change the split behavior of the negative prompt. Special thanks to @WinstonWoof and @Danamir for their contributions!
 * **SDXL Prompt Styler**: Minor changes to output names and printed log prompt.
 
 ### Commit date (2023-08-11)
@@ -59,10 +59,10 @@ Template example from a JSON file:
 ```python
 style = "sai-enhance"
 text_positive = "a futuristic pop up tent in a forest"
-text_positive = "dark"
+text_negative = "dark"
 ```
 
-This will generate the following styled prompts as outputs:
+The above will generate the following styled prompts:
 
 ```python
 text_positive_styled = "breathtaking a futuristic pop up tent in a forest . award-winning, professional, highly detailed"
@@ -89,5 +89,5 @@ This command clones the SDXL Prompt Styler repository into your `ComfyUI/custom_
 
 ### Outputs
 
-* **text_positive** - combined prompt with style for positive promt
-* **text_negative** - combined prompt with style for negative promt
+* **text_positive** - combined prompt with style for positive prompt
+* **text_negative** - combined prompt with style for negative prompt
