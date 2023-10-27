@@ -59,7 +59,7 @@ Template example from a JSON file:
 ```python
 style = "sai-enhance"
 text_positive = "a futuristic pop up tent in a forest"
-text_positive = "dark"
+text_negative = "dark"
 ```
 
 This will generate the following styled prompts as outputs:
