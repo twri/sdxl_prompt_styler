@@ -1,0 +1,57 @@
+[
+    {
+        "name": "No option",
+        "prompt": "{prompt}",
+        "negative_prompt": ""
+    },
+    {
+        "name": "Abstract",
+        "prompt": "abstract  {prompt}",
+        "negative_prompt": "realistic"
+    },
+    {
+        "name": "Aerial",
+        "prompt": "aerial  {prompt}",
+        "negative_prompt": "ground"
+    },
+    {
+        "name": "Fashion",
+        "prompt": "fashion  {prompt}",
+        "negative_prompt": "casual"
+    },
+    {
+        "name": "Landscape",
+        "prompt": "landscape  {prompt}",
+        "negative_prompt": "portrait"
+    },
+    {
+        "name": "Macro",
+        "prompt": "macro  {prompt}",
+        "negative_prompt": "micro"
+    },
+    {
+        "name": "Portrait",
+        "prompt": "portrait  {prompt}",
+        "negative_prompt": "landscape"
+    },
+    {
+        "name": "Sports",
+        "prompt": "sports  {prompt}",
+        "negative_prompt": "stilllife"
+    },
+    {
+        "name": "Street",
+        "prompt": "street  {prompt}",
+        "negative_prompt": "studio"
+    },
+    {
+        "name": "Wedding",
+        "prompt": "wedding  {prompt}",
+        "negative_prompt": "event"
+    },
+    {
+        "name": "Wildlife",
+        "prompt": "wildlife  {prompt}",
+        "negative_prompt": "urban"
+    }
+]

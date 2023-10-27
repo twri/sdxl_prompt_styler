@@ -1,0 +1,57 @@
+[
+    {
+        "name": "No option",
+        "prompt": "{prompt}",
+        "negative_prompt": ""
+    },
+    {
+        "name": "Aggressive",
+        "prompt": "aggressive  {prompt}",
+        "negative_prompt": "calm"
+    },
+    {
+        "name": "Calm",
+        "prompt": "calm  {prompt}",
+        "negative_prompt": "energetic"
+    },
+    {
+        "name": "Chaotic",
+        "prompt": "chaotic  {prompt}",
+        "negative_prompt": "serene"
+    },
+    {
+        "name": "Energetic",
+        "prompt": "energetic  {prompt}",
+        "negative_prompt": "relaxed"
+    },
+    {
+        "name": "Happy",
+        "prompt": "happy  {prompt}",
+        "negative_prompt": "sad"
+    },
+    {
+        "name": "Mysterious",
+        "prompt": "mysterious  {prompt}",
+        "negative_prompt": "clear"
+    },
+    {
+        "name": "Relaxed",
+        "prompt": "relaxed  {prompt}",
+        "negative_prompt": "excited"
+    },
+    {
+        "name": "Romantic",
+        "prompt": "romantic  {prompt}",
+        "negative_prompt": "depressed"
+    },
+    {
+        "name": "Sad",
+        "prompt": "sad  {prompt}",
+        "negative_prompt": "happy"
+    },
+    {
+        "name": "Serene",
+        "prompt": "serene  {prompt}",
+        "negative_prompt": "chaotic"
+    }
+]

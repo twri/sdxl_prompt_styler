@@ -1,0 +1,57 @@
+[
+    {
+        "name": "No option",
+        "prompt": "{prompt}",
+        "negative_prompt": ""
+    },
+    {
+        "name": "Animal",
+        "prompt": "animal  {prompt}",
+        "negative_prompt": "human"
+    },
+    {
+        "name": "Art",
+        "prompt": "art  {prompt}",
+        "negative_prompt": "abstract"
+    },
+    {
+        "name": "Building",
+        "prompt": "building  {prompt}",
+        "negative_prompt": "landscape"
+    },
+    {
+        "name": "Child",
+        "prompt": "child  {prompt}",
+        "negative_prompt": "adult"
+    },
+    {
+        "name": "Female",
+        "prompt": "female  {prompt}",
+        "negative_prompt": "male"
+    },
+    {
+        "name": "Food",
+        "prompt": "food  {prompt}",
+        "negative_prompt": "mould"
+    },
+    {
+        "name": "Male",
+        "prompt": "male  {prompt}",
+        "negative_prompt": "female"
+    },
+    {
+        "name": "Nature",
+        "prompt": "nature  {prompt}",
+        "negative_prompt": "urban"
+    },
+    {
+        "name": "Technology",
+        "prompt": "technology  {prompt}",
+        "negative_prompt": "organic"
+    },
+    {
+        "name": "Vehicle",
+        "prompt": "vehicle  {prompt}",
+        "negative_prompt": "structure"
+    }
+]

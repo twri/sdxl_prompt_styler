@@ -1,0 +1,337 @@
+[
+    {
+        "name": "No option",
+        "prompt": "{prompt}",
+        "negative_prompt": ""
+    },
+    {
+        "name": "10% Focus Area",
+        "prompt": "(10% of the image in sharp focus) (10% of image)  {prompt}",
+        "negative_prompt": "90% focus area"
+    },
+    {
+        "name": "100% Focus Area",
+        "prompt": "(100% of the image in sharp focus) (100% of image)  {prompt}",
+        "negative_prompt": "0% focus area"
+    },
+    {
+        "name": "20% Focus Area",
+        "prompt": "(20% of the image in sharp focus) (20% of image)  {prompt}",
+        "negative_prompt": "80% focus area"
+    },
+    {
+        "name": "30% Focus Area",
+        "prompt": "(30% of the image in sharp focus) (30% of image)  {prompt}",
+        "negative_prompt": "70% focus area"
+    },
+    {
+        "name": "40% Focus Area",
+        "prompt": "(40% of the image in sharp focus) (40% of image)  {prompt}",
+        "negative_prompt": "60% focus area"
+    },
+    {
+        "name": "50% Focus Area",
+        "prompt": "(50% of the image in sharp focus) (50% of image)  {prompt}",
+        "negative_prompt": "50% focus area"
+    },
+    {
+        "name": "60% Focus Area",
+        "prompt": "(60% of the image in sharp focus) (60% of image)  {prompt}",
+        "negative_prompt": "40% focus area"
+    },
+    {
+        "name": "70% Focus Area",
+        "prompt": "(70% of the image in sharp focus) (70% of image)  {prompt}",
+        "negative_prompt": "30% focus area"
+    },
+    {
+        "name": "80% Focus Area",
+        "prompt": "(80% of the image in sharp focus) (80% of image)  {prompt}",
+        "negative_prompt": "20% focus area"
+    },
+    {
+        "name": "90% Focus Area",
+        "prompt": "(90% of the image in sharp focus) (90% of image)  {prompt}",
+        "negative_prompt": "10% focus area"
+    },
+    {
+        "name": "Autofocus",
+        "prompt": "(Using autofocus) (autofocus technique)  {prompt}",
+        "negative_prompt": "manual focus"
+    },
+    {
+        "name": "Back-Button Focus",
+        "prompt": "(Using back-button focus) (back-button focus technique)  {prompt}",
+        "negative_prompt": "front-button focus"
+    },
+    {
+        "name": "Background Focus",
+        "prompt": "(Background Focus)  {prompt}",
+        "negative_prompt": "(Foreground Focus)"
+    },
+    {
+        "name": "Bottom Focus",
+        "prompt": "(Bottom Focus)  {prompt}",
+        "negative_prompt": "(Top Focus)"
+    },
+    {
+        "name": "Central Focus",
+        "prompt": "(Central Focus)  {prompt}",
+        "negative_prompt": "(Peripheral Focus)"
+    },
+    {
+        "name": "Corner Focus",
+        "prompt": "(Corner Focus)  {prompt}",
+        "negative_prompt": "(Center Focus)"
+    },
+    {
+        "name": "Crane Focus",
+        "prompt": "(Crane Focus)  {prompt}",
+        "negative_prompt": "(Ground Focus)"
+    },
+    {
+        "name": "Deep Focus",
+        "prompt": "(Deep Focus)  {prompt} / (f_stop 16.0), (focal_length 24.0)",
+        "negative_prompt": "(Deep Focus) / (f_stop 1.8), (focal_length 85)"
+    },
+    {
+        "name": "Dolly Focus",
+        "prompt": "(Dolly Focus)  {prompt}",
+        "negative_prompt": "(Static Focus)"
+    },
+    {
+        "name": "Drone Focus",
+        "prompt": "(Drone Focus)  {prompt}",
+        "negative_prompt": "(Ground Focus)"
+    },
+    {
+        "name": "Edge-to-edge Focus",
+        "prompt": "(Edge-to-edge Focus)  {prompt}",
+        "negative_prompt": "(Center Focus)"
+    },
+    {
+        "name": "Fly-by Focus",
+        "prompt": "(Fly-by Focus)  {prompt}",
+        "negative_prompt": "Static Focus"
+    },
+    {
+        "name": "Focus Bracketing",
+        "prompt": "(Using focus bracketing) (focus bracketing technique)  {prompt}",
+        "negative_prompt": "focus everything"
+    },
+    {
+        "name": "Focus Distance 0.5m",
+        "prompt": "(Subject 0.5m away in sharp focus) (Distance 0.5m away)  {prompt}",
+        "negative_prompt": "Subjects 9.5m away"
+    },
+    {
+        "name": "Focus Distance 1.0m",
+        "prompt": "(Subject 1.0m away in sharp focus) (Distance 1.0m away)  {prompt}",
+        "negative_prompt": "Subjects 9.0m away"
+    },
+    {
+        "name": "Focus Distance 1.5m",
+        "prompt": "(Subject 1.5m away in sharp focus) (Distance 1.5m away)  {prompt}",
+        "negative_prompt": "Subjects 8.5m away"
+    },
+    {
+        "name": "Focus Distance 10.0m",
+        "prompt": "(Subject 10.0m away in sharp focus) (Distance 10.0m away)  {prompt}",
+        "negative_prompt": "Subjects 0.0m away"
+    },
+    {
+        "name": "Focus Distance 2.0m",
+        "prompt": "(Subject 2.0m away in sharp focus) (Distance 2.0m away)  {prompt}",
+        "negative_prompt": "Subjects 8.0m away"
+    },
+    {
+        "name": "Focus Distance 2.5m",
+        "prompt": "(Subject 2.5m away in sharp focus) (Distance 2.5m away)  {prompt}",
+        "negative_prompt": "Subjects 7.5m away"
+    },
+    {
+        "name": "Focus Distance 3.0m",
+        "prompt": "(Subject 3.0m away in sharp focus) (Distance 3.0m away)  {prompt}",
+        "negative_prompt": "Subjects 7.0m away"
+    },
+    {
+        "name": "Focus Distance 3.5m",
+        "prompt": "(Subject 3.5m away in sharp focus) (Distance 3.5m away)  {prompt}",
+        "negative_prompt": "Subjects 6.5m away"
+    },
+    {
+        "name": "Focus Distance 4.0m",
+        "prompt": "(Subject 4.0m away in sharp focus) (Distance 4.0m away)  {prompt}",
+        "negative_prompt": "Subjects 6.0m away"
+    },
+    {
+        "name": "Focus Distance 4.5m",
+        "prompt": "(Subject 4.5m away in sharp focus) (Distance 4.5m away)  {prompt}",
+        "negative_prompt": "Subjects 5.5m away"
+    },
+    {
+        "name": "Focus Distance 5.0m",
+        "prompt": "(Subject 5.0m away in sharp focus) (Distance 5.0m away)  {prompt}",
+        "negative_prompt": "Subjects 5.0m away"
+    },
+    {
+        "name": "Focus Distance 5.5m",
+        "prompt": "(Subject 5.5m away in sharp focus) (Distance 5.5m away)  {prompt}",
+        "negative_prompt": "Subjects 4.5m away"
+    },
+    {
+        "name": "Focus Distance 6.0m",
+        "prompt": "(Subject 6.0m away in sharp focus) (Distance 6.0m away)  {prompt}",
+        "negative_prompt": "Subjects 4.0m away"
+    },
+    {
+        "name": "Focus Distance 6.5m",
+        "prompt": "(Subject 6.5m away in sharp focus) (Distance 6.5m away)  {prompt}",
+        "negative_prompt": "Subjects 3.5m away"
+    },
+    {
+        "name": "Focus Distance 7.0m",
+        "prompt": "(Subject 7.0m away in sharp focus) (Distance 7.0m away)  {prompt}",
+        "negative_prompt": "Subjects 3.0m away"
+    },
+    {
+        "name": "Focus Distance 7.5m",
+        "prompt": "(Subject 7.5m away in sharp focus) (Distance 7.5m away)  {prompt}",
+        "negative_prompt": "Subjects 2.5m away"
+    },
+    {
+        "name": "Focus Distance 8.0m",
+        "prompt": "(Subject 8.0m away in sharp focus) (Distance 8.0m away)  {prompt}",
+        "negative_prompt": "Subjects 2.0m away"
+    },
+    {
+        "name": "Focus Distance 8.5m",
+        "prompt": "(Subject 8.5m away in sharp focus) (Distance 8.5m away)  {prompt}",
+        "negative_prompt": "Subjects 1.5m away"
+    },
+    {
+        "name": "Focus Distance 9.0m",
+        "prompt": "(Subject 9.0m away in sharp focus) (Distance 9.0m away)  {prompt}",
+        "negative_prompt": "Subjects 1.0m away"
+    },
+    {
+        "name": "Focus Distance 9.5m",
+        "prompt": "(Subject 9.5m away in sharp focus) (Distance 9.5m away)  {prompt}",
+        "negative_prompt": "Subjects 0.5m away"
+    },
+    {
+        "name": "Focus Stacking",
+        "prompt": "(Using focus stacking) (focus stacking technique)  {prompt}",
+        "negative_prompt": "single focus point"
+    },
+    {
+        "name": "Follow Focus",
+        "prompt": "(Follow Focus)  {prompt}",
+        "negative_prompt": "Static Focus"
+    },
+    {
+        "name": "Foreground Focus",
+        "prompt": "(Foreground Focus)  {prompt}",
+        "negative_prompt": "Background Focus"
+    },
+    {
+        "name": "Infinity Focus",
+        "prompt": "(Infinity Focus)  {prompt}",
+        "negative_prompt": "(Infinity Focus)"
+    },
+    {
+        "name": "Left Focus",
+        "prompt": "(Left Focus)  {prompt}",
+        "negative_prompt": "Right Focus"
+    },
+    {
+        "name": "Macro Focus",
+        "prompt": "(Macro Focus)  {prompt}",
+        "negative_prompt": "(Micro Focus)"
+    },
+    {
+        "name": "Manual Focus",
+        "prompt": "(Using manual focus) (manual focus technique)  {prompt}",
+        "negative_prompt": "autofocus"
+    },
+    {
+        "name": "Pan Focus",
+        "prompt": "(Pan Focus)  {prompt}",
+        "negative_prompt": "(Pan Focus)"
+    },
+    {
+        "name": "Pull Focus",
+        "prompt": "(Pull Focus)  {prompt}",
+        "negative_prompt": "(Pull Focus)"
+    },
+    {
+        "name": "Rack Focus",
+        "prompt": "(Rack Focus)  {prompt}",
+        "negative_prompt": "(Rack Focus)"
+    },
+    {
+        "name": "Right Focus",
+        "prompt": "(Right Focus)  {prompt}",
+        "negative_prompt": "(Left Focus)"
+    },
+    {
+        "name": "Rolling Focus",
+        "prompt": "(Rolling Focus)  {prompt}",
+        "negative_prompt": "(Rolling Focus)"
+    },
+    {
+        "name": "Selective Focus",
+        "prompt": "(f_stop 3.5), (focal_length 40.0) f/3.5, 40mm focal length / (Selective Focus)  {prompt} / (f_stop 2.8), (focal_length 50.0)",
+        "negative_prompt": "(f_stop 1.2), (focal_length 14.0) / (Selective Focus) / (f_stop 16), (focal_length 24)"
+    },
+    {
+        "name": "Selective Focus - Alternative",
+        "prompt": "(Selective Focus)  {prompt} / (f_stop 2.8), (focal_length 50.0)",
+        "negative_prompt": "(Selective Focus) / (f_stop 16), (focal_length 24)"
+    },
+    {
+        "name": "Slide Focus",
+        "prompt": "(Slide Focus)  {prompt}",
+        "negative_prompt": "(Slide Focus)"
+    },
+    {
+        "name": "Soft Focus",
+        "prompt": "(Soft Focus)  {prompt} / (f_stop 1.8), (focal_length 85.0)",
+        "negative_prompt": "(Soft Focus) / (f_stop 16), (focal_length 24)"
+    },
+    {
+        "name": "Swing Focus",
+        "prompt": "(Swing Focus)  {prompt}",
+        "negative_prompt": "(Swing Focus)"
+    },
+    {
+        "name": "Tilt Focus",
+        "prompt": "(Tilt Focus)  {prompt}",
+        "negative_prompt": "(Pan Focus)"
+    },
+    {
+        "name": "Tilt-shift Focus",
+        "prompt": "(Tilt-shift Focus)  {prompt}",
+        "negative_prompt": "(Tilt-shift Focus)"
+    },
+    {
+        "name": "Top Focus",
+        "prompt": "(Top Focus)  {prompt}",
+        "negative_prompt": "(Top Focus)"
+    },
+    {
+        "name": "Whip Focus",
+        "prompt": "(Whip Focus)  {prompt}",
+        "negative_prompt": "(Whip Focus)"
+    },
+    {
+        "name": "Zone Focus",
+        "prompt": "(Zone Focus)  {prompt}",
+        "negative_prompt": "(Zone Focus)"
+    },
+    {
+        "name": "Zoom Focus",
+        "prompt": "(Zoom Focus)  {prompt}",
+        "negative_prompt": "(Fixed Focus)"
+    }
+]

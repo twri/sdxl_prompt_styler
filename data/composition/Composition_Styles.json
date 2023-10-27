@@ -1,0 +1,57 @@
+[
+    {
+        "name": "No option",
+        "prompt": "{prompt}",
+        "negative_prompt": ""
+    },
+    {
+        "name": "Balance",
+        "prompt": "balance  {prompt}",
+        "negative_prompt": "unbalanced"
+    },
+    {
+        "name": "Framing",
+        "prompt": "framing  {prompt}",
+        "negative_prompt": "blocking"
+    },
+    {
+        "name": "LeadingLines",
+        "prompt": "leadinglines  {prompt}",
+        "negative_prompt": "scattered"
+    },
+    {
+        "name": "NegativeSpace",
+        "prompt": "negativespace  {prompt}",
+        "negative_prompt": "positivespace"
+    },
+    {
+        "name": "Pattern",
+        "prompt": "pattern  {prompt}",
+        "negative_prompt": "random"
+    },
+    {
+        "name": "Perspective",
+        "prompt": "perspective  {prompt}",
+        "negative_prompt": "flat"
+    },
+    {
+        "name": "RuleOfThirds",
+        "prompt": "ruleofthirds  {prompt}",
+        "negative_prompt": "centered"
+    },
+    {
+        "name": "Simplicity",
+        "prompt": "simplicity  {prompt}",
+        "negative_prompt": "complex"
+    },
+    {
+        "name": "Symmetry",
+        "prompt": "symmetry  {prompt}",
+        "negative_prompt": "asymmetry"
+    },
+    {
+        "name": "Texture",
+        "prompt": "texture  {prompt}",
+        "negative_prompt": "smooth"
+    }
+]

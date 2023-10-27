@@ -1,0 +1,57 @@
+[
+    {
+        "name": "No option",
+        "prompt": "{prompt}",
+        "negative_prompt": ""
+    },
+    {
+        "name": "Ambient",
+        "prompt": "ambient  {prompt}",
+        "negative_prompt": "spotlight"
+    },
+    {
+        "name": "Artificial",
+        "prompt": "artificial  {prompt}",
+        "negative_prompt": "natural"
+    },
+    {
+        "name": "Backlit",
+        "prompt": "backlit  {prompt}",
+        "negative_prompt": "frontlit"
+    },
+    {
+        "name": "Diffused",
+        "prompt": "diffused  {prompt}",
+        "negative_prompt": "direct"
+    },
+    {
+        "name": "Flash",
+        "prompt": "flash  {prompt}",
+        "negative_prompt": "natural"
+    },
+    {
+        "name": "Harsh",
+        "prompt": "harsh  {prompt}",
+        "negative_prompt": "soft"
+    },
+    {
+        "name": "Natural",
+        "prompt": "natural  {prompt}",
+        "negative_prompt": "artificial"
+    },
+    {
+        "name": "SideLit",
+        "prompt": "sidelit  {prompt}",
+        "negative_prompt": "backlit"
+    },
+    {
+        "name": "Soft",
+        "prompt": "soft  {prompt}",
+        "negative_prompt": "harsh"
+    },
+    {
+        "name": "Spotlight",
+        "prompt": "spotlight  {prompt}",
+        "negative_prompt": "ambient"
+    }
+]

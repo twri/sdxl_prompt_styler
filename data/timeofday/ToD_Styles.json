@@ -1,0 +1,57 @@
+[
+    {
+        "name": "No option",
+        "prompt": "{prompt}",
+        "negative_prompt": ""
+    },
+    {
+        "name": "Afternoon",
+        "prompt": "afternoon  {prompt}",
+        "negative_prompt": "morning"
+    },
+    {
+        "name": "BlueHour",
+        "prompt": "bluehour  {prompt}",
+        "negative_prompt": "night"
+    },
+    {
+        "name": "Evening",
+        "prompt": "evening  {prompt}",
+        "negative_prompt": "morning"
+    },
+    {
+        "name": "GoldenHour",
+        "prompt": "goldenhour  {prompt}",
+        "negative_prompt": "night"
+    },
+    {
+        "name": "Midday",
+        "prompt": "midday  {prompt}",
+        "negative_prompt": "morning"
+    },
+    {
+        "name": "Morning",
+        "prompt": "morning  {prompt}",
+        "negative_prompt": "night"
+    },
+    {
+        "name": "Night",
+        "prompt": "night  {prompt}",
+        "negative_prompt": "day"
+    },
+    {
+        "name": "Sunrise",
+        "prompt": "sunrise  {prompt}",
+        "negative_prompt": "sunset"
+    },
+    {
+        "name": "Sunset",
+        "prompt": "sunset  {prompt}",
+        "negative_prompt": "morning"
+    },
+    {
+        "name": "Twilight",
+        "prompt": "twilight  {prompt}",
+        "negative_prompt": "day"
+    }
+]

@@ -1,0 +1,57 @@
+[
+    {
+        "name": "No option",
+        "prompt": "{prompt}",
+        "negative_prompt": ""
+    },
+    {
+        "name": "BlackAndWhite",
+        "prompt": "blackandwhite  {prompt}",
+        "negative_prompt": "color"
+    },
+    {
+        "name": "Contrast",
+        "prompt": "contrast  {prompt}",
+        "negative_prompt": "brightness"
+    },
+    {
+        "name": "Cool",
+        "prompt": "cool  {prompt}",
+        "negative_prompt": "warm"
+    },
+    {
+        "name": "HDR",
+        "prompt": "hdr  {prompt}",
+        "negative_prompt": "ldr"
+    },
+    {
+        "name": "Monochrome",
+        "prompt": "monochrome  {prompt}",
+        "negative_prompt": "colorful"
+    },
+    {
+        "name": "Saturated",
+        "prompt": "saturated  {prompt}",
+        "negative_prompt": "dull"
+    },
+    {
+        "name": "Sepia",
+        "prompt": "sepia  {prompt}",
+        "negative_prompt": "bright"
+    },
+    {
+        "name": "Vignette",
+        "prompt": "vignette  {prompt}",
+        "negative_prompt": "none"
+    },
+    {
+        "name": "Vintage",
+        "prompt": "vintage  {prompt}",
+        "negative_prompt": "modern"
+    },
+    {
+        "name": "Warm",
+        "prompt": "warm  {prompt}",
+        "negative_prompt": "cool"
+    }
+]

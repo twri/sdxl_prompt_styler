@@ -1,0 +1,637 @@
+[
+    {
+        "name": "no camera",
+        "prompt": " {prompt} ",
+        "negative_prompt": " "
+    },
+    {
+        "name": "Canon EOS 90D",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon EOS 90D)",
+        "negative_prompt": "slow shooting, inaccurate capture, static subjects"
+    },
+    {
+        "name": "Canon EOS M50",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon EOS M50)",
+        "negative_prompt": "imbalanced quality"
+    },
+    {
+        "name": "Canon EOS M50 Mark II",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon EOS M50 Mark II)",
+        "negative_prompt": "complex, non-vlogging, specialized photography"
+    },
+    {
+        "name": "Canon EOS M6 Mark II",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon EOS M6 Mark II)",
+        "negative_prompt": "professionals, poor image quality, slow capture, specialized"
+    },
+    {
+        "name": "Canon EOS R5",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon EOS R5)",
+        "negative_prompt": "inferior capture, lack of stabilization, amateur use"
+    },
+    {
+        "name": "Canon EOS R5 (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon EOS R5)",
+        "negative_prompt": "low-resolution, basic video, amateurs, single field"
+    },
+    {
+        "name": "Canon EOS RP",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon EOS RP)",
+        "negative_prompt": "cropped frame, amateur quality, professionals"
+    },
+    {
+        "name": "Canon EOS Rebel T8i",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon EOS Rebel T8i), characterized by (vibrant colors, sharp details)",
+        "negative_prompt": "professional-level"
+    },
+    {
+        "name": "Canon EOS Rebel T8i (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon EOS Rebel T8i)",
+        "negative_prompt": "professional-level"
+    },
+    {
+        "name": "Canon EOS-1D X Mark III",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon EOS-1D X Mark III)",
+        "negative_prompt": "slow speed, inaccuracy"
+    },
+    {
+        "name": "Canon EOS-1D X Mark III (Unique Dynamic Capture Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon EOS-1D X Mark III)",
+        "negative_prompt": "amateur, portrait photographers, slow shooting, inaccurate capture, static scenes"
+    },
+    {
+        "name": "Canon EOS-1D X Mark III (Unique Dynamic Scenes Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon EOS-1D X Mark III)",
+        "negative_prompt": "amateur, slow shooting, unreliable capture, still life, passive scenes"
+    },
+    {
+        "name": "Canon PowerShot G7 X Mark III",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon PowerShot G7 X Mark III)",
+        "negative_prompt": "complex, poor vlogging, HD video"
+    },
+    {
+        "name": "Canon PowerShot G7 X Mark III (Unique Specific Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon PowerShot G7 X Mark III)",
+        "negative_prompt": "photographers, video limitations, professional recording"
+    },
+    {
+        "name": "Canon PowerShot G7 X Mark III (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Canon PowerShot G7 X Mark III )",
+        "negative_prompt": "still photography, HD video, traditional photographers, stationary"
+    },
+    {
+        "name": "Fujifilm FinePix XP140",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm FinePix XP140)",
+        "negative_prompt": "indoor use, shock-prone"
+    },
+    {
+        "name": "Fujifilm GFX 100",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm GFX 100)",
+        "negative_prompt": "low resolution, color inconsistency, amateurish quality"
+    },
+    {
+        "name": "Fujifilm GFX 100 (Unique Specific Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm GFX 100)",
+        "negative_prompt": "low resolution, lack of stabilization, blurred images"
+    },
+    {
+        "name": "Fujifilm GFX 100 (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm GFX 100 )",
+        "negative_prompt": "low resolution, lack of detail, limited range, amateur"
+    },
+    {
+        "name": "Fujifilm GFX 50S",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm GFX 50S)",
+        "negative_prompt": "low resolution, poor tones, casual snapfocus"
+    },
+    {
+        "name": "Fujifilm Instax Mini 11",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm Instax Mini 11)",
+        "negative_prompt": "serious, complex, professional events, solitude, digital storage"
+    },
+    {
+        "name": "Fujifilm X-E4",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm X-E4)",
+        "negative_prompt": "dull color, studio photography"
+    },
+    {
+        "name": "Fujifilm X-E4 (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm X-E4)",
+        "negative_prompt": "studio, portrait photographers"
+    },
+    {
+        "name": "Fujifilm X-Pro3",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm X-Pro3)",
+        "negative_prompt": "viewfinder, digital look, modern images"
+    },
+    {
+        "name": "Fujifilm X-Pro3 (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm X-Pro3)",
+        "negative_prompt": "viewfinder, digital look, modern experience, digital aesthetics"
+    },
+    {
+        "name": "Fujifilm X-T200",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm X-T200)",
+        "negative_prompt": "complex, dull color, professionals, low-quality images"
+    },
+    {
+        "name": "Fujifilm X-T4",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm X-T4)",
+        "negative_prompt": "slowness, lack of stabilization, amateur videography"
+    },
+    {
+        "name": "Fujifilm X-T4 (Unique Strong Stabilization)",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm X-T4)",
+        "negative_prompt": "weak stabilization, specialized performance, photography only, videography only"
+    },
+    {
+        "name": "Fujifilm X100V",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm X100V)",
+        "negative_prompt": "digital look, contemporary images"
+    },
+    {
+        "name": "Fujifilm X100V (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Fujifilm X100V)",
+        "negative_prompt": "modern looks, average image quality, studio photography"
+    },
+    {
+        "name": "GoPro HERO9 Black",
+        "prompt": "Photograph of  {prompt}, captured on a (GoPro HERO9 Black)",
+        "negative_prompt": "shaky footage, static scenes"
+    },
+    {
+        "name": "Hasselblad 907X 50C",
+        "prompt": "Photograph of  {prompt}, captured on a (Hasselblad 907X 50C)",
+        "negative_prompt": "modern aesthetics, poor detail"
+    },
+    {
+        "name": "Hasselblad 907X 50C (Unique Large Format)",
+        "prompt": "Photograph of  {prompt}, captured on a (Hasselblad 907X 50C)",
+        "negative_prompt": "poor image quality"
+    },
+    {
+        "name": "Hasselblad H5D-50c",
+        "prompt": "Photograph of  {prompt}, captured on a (Hasselblad H5D-50c)",
+        "negative_prompt": "lack of detail, color inaccuracy"
+    },
+    {
+        "name": "Hasselblad H6D-100c",
+        "prompt": "Photograph of  {prompt}, captured on a (Hasselblad H6D-100c)",
+        "negative_prompt": "low resolution, amateur work"
+    },
+    {
+        "name": "Hasselblad X1D II 50C",
+        "prompt": "Photograph of  {prompt}, captured on a (Hasselblad X1D II 50C)",
+        "negative_prompt": "limited detail, narrow dynamic range, dull colors"
+    },
+    {
+        "name": "Hasselblad X1D II 50C (Unique High Resolution)",
+        "prompt": "Photograph of  {prompt}, captured on a (Hasselblad X1D II 50C)",
+        "negative_prompt": "low resolution, color inaccuracy, amateur portraits"
+    },
+    {
+        "name": "Hasselblad XCD 4/45P",
+        "prompt": "Photograph of  {prompt}, captured on a (Hasselblad XCD 4/45P)",
+        "negative_prompt": "average , harsh bokeh"
+    },
+    {
+        "name": "Leica CL",
+        "prompt": "Photograph of  {prompt}, captured on a (Leica CL)",
+        "negative_prompt": "average optics, soft images"
+    },
+    {
+        "name": "Leica M-D",
+        "prompt": "Photograph of  {prompt}, captured on a (Leica M-D)",
+        "negative_prompt": "DSLR, enhanced photography"
+    },
+    {
+        "name": "Leica M10 Monochrom",
+        "prompt": "Photograph of  {prompt}, captured on a (Leica M10 Monochrom)",
+        "negative_prompt": "color photography, flat tones, contemporary look"
+    },
+    {
+        "name": "Leica M10 Monochrom (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Leica M10 Monochrom)",
+        "negative_prompt": "color photography, conventional, non-artists, color enthusiasts"
+    },
+    {
+        "name": "Leica M10-R",
+        "prompt": "Photograph of  {prompt}, captured on a (Leica M10-R)",
+        "negative_prompt": "mediocre quality, lack of detail, snapshot photography"
+    },
+    {
+        "name": "Leica M11",
+        "prompt": "Photograph of  {prompt}, captured on a (Leica M11)",
+        "negative_prompt": ""
+    },
+    {
+        "name": "Leica Q-P",
+        "prompt": "Photograph of  {prompt}, captured on a (Leica Q-P)",
+        "negative_prompt": "attention-grabbing, studio photographers"
+    },
+    {
+        "name": "Leica Q2",
+        "prompt": "Photograph of  {prompt}, captured on a (Leica Q2)",
+        "negative_prompt": "cropped sensor, lack of , low"
+    },
+    {
+        "name": "Leica Q2 Monochrom",
+        "prompt": "Photograph of  {prompt}, captured on a (Leica Q2 Monochrom)",
+        "negative_prompt": "color photography, complex approach, low-resolution, color enthusiasts"
+    },
+    {
+        "name": "Leica S3",
+        "prompt": "Photograph of  {prompt}, captured on a (Leica S3)",
+        "negative_prompt": "mediocre image quality, basic build, low-end commercial"
+    },
+    {
+        "name": "Leica SL2",
+        "prompt": "Photograph of  {prompt}, captured on a (Leica SL2)",
+        "negative_prompt": "low-quality images, cheap feel"
+    },
+    {
+        "name": "Leica SL2 (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Leica SL2)",
+        "negative_prompt": "cropped sensor, mediocre quality, snap, budget advertising"
+    },
+    {
+        "name": "Leica SL2-S",
+        "prompt": "Photograph of  {prompt}, captured on a (Leica SL2-S)",
+        "negative_prompt": "cropped-frame, basic build, specialization, photography only, videography only"
+    },
+    {
+        "name": "Nikon Coolpix P950",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon Coolpix P950)",
+        "negative_prompt": "limited zoom, lack of stabilization, close-up photography"
+    },
+    {
+        "name": "Nikon Coolpix P950 (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon Coolpix P950)",
+        "negative_prompt": "limited zoom, no stabilization, close-up subjects"
+    },
+    {
+        "name": "Nikon Coolpix W300",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon Coolpix W300)",
+        "negative_prompt": "studio, , HD video"
+    },
+    {
+        "name": "Nikon D3500",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon D3500), characterized by (rich colors, smooth tonal transitions)",
+        "negative_prompt": "poor image quality"
+    },
+    {
+        "name": "Nikon D6",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon D6)",
+        "negative_prompt": "amateur, slowness, inaccuracy, still life photography, static scenes"
+    },
+    {
+        "name": "Nikon D780",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon D780)",
+        "negative_prompt": "poor low-light, limited video, low-detail images"
+    },
+    {
+        "name": "Nikon D850",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon D850)",
+        "negative_prompt": "low resolution, slow performance"
+    },
+    {
+        "name": "Nikon D850 (Unique High Resolution)",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon D850)",
+        "negative_prompt": "cropped-frame, low resolution, specialized performance, amateur, narrow range"
+    },
+    {
+        "name": "Nikon Z5",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon Z5)",
+        "negative_prompt": "cropped-frame, imbalance, poor performance, expensive, beginners, high-end professionals"
+    },
+    {
+        "name": "Nikon Z50",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon Z50)",
+        "negative_prompt": "complex, dull images"
+    },
+    {
+        "name": "Nikon Z50 (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon Z50)",
+        "negative_prompt": "complex, professionals, stationary photography"
+    },
+    {
+        "name": "Nikon Z6",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon Z6)",
+        "negative_prompt": "cropped sensor, poor low-light performance, noisy images"
+    },
+    {
+        "name": "Nikon Z6 II",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon Z6 II)",
+        "negative_prompt": "poor low-light, slow capture, static , day scenes"
+    },
+    {
+        "name": "Nikon Z7 II",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon Z7 II)",
+        "negative_prompt": "low-resolution, slow shooting, lack of detail, static scenes"
+    },
+    {
+        "name": "Nikon Z7 II (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Nikon Z7 II)",
+        "negative_prompt": "poor resolution, limited range, portrait photographers, vague details"
+    },
+    {
+        "name": "Olympus E-M1X",
+        "prompt": "Photograph of  {prompt}, captured on a (Olympus E-M1X)",
+        "negative_prompt": "weak stabilization, slow capture, still life, passive scenes"
+    },
+    {
+        "name": "Olympus OM-D E-M1 Mark II",
+        "prompt": "Photograph of  {prompt}, captured on a (Olympus OM-D E-M1 Mark II)",
+        "negative_prompt": "slow capture,  action, missed timing"
+    },
+    {
+        "name": "Olympus OM-D E-M10 Mark IV",
+        "prompt": "Photograph of  {prompt}, captured on a (Olympus OM-D E-M10 Mark IV)",
+        "negative_prompt": "heavy, fixed location, shaky images"
+    },
+    {
+        "name": "Olympus OM-D E-M10 Mark IV (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Olympus OM-D E-M10 Mark IV)",
+        "negative_prompt": "complex, professional-level"
+    },
+    {
+        "name": "Olympus OM-D E-M1X",
+        "prompt": "Photograph of  {prompt}, captured on a (Olympus OM-D E-M1X)",
+        "negative_prompt": "amateur, still life, basic stabilization, non-weather-sealed, controlled conditions"
+    },
+    {
+        "name": "Olympus OM-D E-M5 Mark III",
+        "prompt": "Photograph of  {prompt}, captured on a (Olympus OM-D E-M5 Mark III)",
+        "negative_prompt": "weak stabilization, studio photography"
+    },
+    {
+        "name": "Olympus OM-D E-M5 Mark III (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Olympus OM-D E-M5 Mark III)",
+        "negative_prompt": "heavy, non-weather-sealed, indoor photography, controlled weather"
+    },
+    {
+        "name": "Olympus PEN E-PL10",
+        "prompt": "Photograph of  {prompt}, captured on a (Olympus PEN E-PL10)",
+        "negative_prompt": "technical photographers,  images"
+    },
+    {
+        "name": "Olympus PEN-F",
+        "prompt": "Photograph of  {prompt}, captured on a (Olympus PEN-F)",
+        "negative_prompt": "poor color reproduction, dull photos"
+    },
+    {
+        "name": "Olympus PEN-F (Unique Specific Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Olympus PEN-F)",
+        "negative_prompt": "fixed , limited creativity, studio photography"
+    },
+    {
+        "name": "Olympus PEN-F (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Olympus PEN-F )",
+        "negative_prompt": "modern-styled,  controls, non-artists, lack of style, limited functionality"
+    },
+    {
+        "name": "Olympus Tough TG-6",
+        "prompt": "Photograph of  {prompt}, captured on a (Olympus Tough TG-6)",
+        "negative_prompt": "not waterproof, indoor photography"
+    },
+    {
+        "name": "Olympus Tough TG-6 (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Olympus Tough TG-6)",
+        "negative_prompt": "studio, , shock-prone"
+    },
+    {
+        "name": "Panasonic Lumix DC-G100",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix DC-G100)",
+        "negative_prompt": "photographers, external microphone required, poor audio"
+    },
+    {
+        "name": "Panasonic Lumix DC-G9",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix DC-G9)",
+        "negative_prompt": "videographers, low-resolution, slow burst, still life, static scenes"
+    },
+    {
+        "name": "Panasonic Lumix DC-GH5",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix DC-GH5)",
+        "negative_prompt": "HD video, basic features, photographers, non-cinematic content"
+    },
+    {
+        "name": "Panasonic Lumix DC-S1R",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix DC-S1R)",
+        "negative_prompt": "low-resolution,  build,  landscapes, amateur indoor"
+    },
+    {
+        "name": "Panasonic Lumix DC-S5",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix DC-S5)",
+        "negative_prompt": "photo-only, limited video, specialization, single-format creators"
+    },
+    {
+        "name": "Panasonic Lumix DC-S5 (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix DC-S5)",
+        "negative_prompt": "cropped-frame, imbalance, poor image quality, limited video, specialized creators"
+    },
+    {
+        "name": "Panasonic Lumix DMC-FZ300",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix DMC-FZ300), characterized by (fast autofocus, great macro capabilities)",
+        "negative_prompt": "variable aperture, non-weather-sealed, indoor photography"
+    },
+    {
+        "name": "Panasonic Lumix DMC-FZ300 (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix DMC-FZ300)",
+        "negative_prompt": "fixed , studio photographers, non-adventurous"
+    },
+    {
+        "name": "Panasonic Lumix DMC-LX100 II",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix DMC-LX100 II)",
+        "negative_prompt": "budget, slow , HD video, studio work, specialized photography"
+    },
+    {
+        "name": "Panasonic Lumix FZ1000 II",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix FZ1000 II)",
+        "negative_prompt": "limited zoom, HD video, single-purpose"
+    },
+    {
+        "name": "Panasonic Lumix G100",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix G100)",
+        "negative_prompt": "still photography, HD video, fixed , limited framing"
+    },
+    {
+        "name": "Panasonic Lumix GH5 II",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix GH5 II)",
+        "negative_prompt": "still photography, shaky footage, low frame rates, amateur video"
+    },
+    {
+        "name": "Panasonic Lumix S1",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix S1)",
+        "negative_prompt": "still photography, photographers, indoor videography"
+    },
+    {
+        "name": "Panasonic Lumix S1R",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix S1R)",
+        "negative_prompt": "low resolution, lack of detail, amateur use"
+    },
+    {
+        "name": "Panasonic Lumix S5",
+        "prompt": "Photograph of  {prompt}, captured on a (Panasonic Lumix S5)",
+        "negative_prompt": "HD video, non-vlogging"
+    },
+    {
+        "name": "Pentax 645Z",
+        "prompt": "Photograph of  {prompt}, captured on a (Pentax 645Z)",
+        "negative_prompt": "lack of detail, limited range, amateur portraits"
+    },
+    {
+        "name": "Pentax 645Z (Unique Large Format)",
+        "prompt": "Photograph of  {prompt}, captured on a (Pentax 645Z)",
+        "negative_prompt": "average image quality, limited range, amateur, action, on-the-go"
+    },
+    {
+        "name": "Pentax K-1 Mark II",
+        "prompt": "Photograph of  {prompt}, captured on a (Pentax K-1 Mark II)",
+        "negative_prompt": "soft , limited dynamic range"
+    },
+    {
+        "name": "Pentax KP",
+        "prompt": "Photograph of  {prompt}, captured on a (Pentax KP)",
+        "negative_prompt": "build, non-weather-sealed, indoor photography"
+    },
+    {
+        "name": "Phase One XF IQ4 150MP",
+        "prompt": "Photograph of  {prompt}, captured on a (Phase One XF IQ4 150MP)",
+        "negative_prompt": "low-end, low resolution, amateur, lack of detail"
+    },
+    {
+        "name": "Phase One XT",
+        "prompt": "Photograph of  {prompt}, captured on a (Phase One XT)",
+        "negative_prompt": "studio camera, action, portrait, lack of detail, disconnected system"
+    },
+    {
+        "name": "Ricoh GR III",
+        "prompt": "Photograph of  {prompt}, captured on a (Ricoh GR III)",
+        "negative_prompt": "soft , shaky ,  handheld images"
+    },
+    {
+        "name": "Ricoh GR III (Unique Steady Focus)",
+        "prompt": "Photograph of  {prompt}, captured on a (Ricoh GR III)",
+        "negative_prompt": "soft , studio photography"
+    },
+    {
+        "name": "Ricoh GR III (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Ricoh GR III)",
+        "negative_prompt": "studio photography, softness"
+    },
+    {
+        "name": "Ricoh Theta Z1",
+        "prompt": "Photograph of  {prompt}, captured on a (Ricoh Theta Z1)",
+        "negative_prompt": "photography, flat images, limited views"
+    },
+    {
+        "name": "Ricoh Theta Z1 (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Ricoh Theta Z1)",
+        "negative_prompt": "camera, flat images, non-VR, limited angles"
+    },
+    {
+        "name": "Sigma SD Quattro H",
+        "prompt": "Photograph of  {prompt}, captured on a (Sigma SD Quattro H)",
+        "negative_prompt": "traditional sensor, blended color, soft"
+    },
+    {
+        "name": "Sigma fp",
+        "prompt": "Photograph of  {prompt}, captured on a (Sigma fp)",
+        "negative_prompt": "limited versatility, soft images, jittery video"
+    },
+    {
+        "name": "Sigma fp (Unique Specific Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Sigma fp)",
+        "negative_prompt": "rigidity, limited scenarios"
+    },
+    {
+        "name": "Sigma fp (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Sigma fp )",
+        "negative_prompt": "cropped-frame, bulkiness, specialization, photo only, video only"
+    },
+    {
+        "name": "Sigma fp L",
+        "prompt": "Photograph of  {prompt}, captured on a (Sigma fp L)",
+        "negative_prompt": "low resolution, limited creativity"
+    },
+    {
+        "name": "Sony A6000",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony A6000)",
+        "negative_prompt": "poor capture, studio photography, staged"
+    },
+    {
+        "name": "Sony A6400",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony A6400)",
+        "negative_prompt": "slowness, capture inaccuracy, still photography"
+    },
+    {
+        "name": "Sony A7R IV",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony A7R IV)",
+        "negative_prompt": "low resolution, limited range, lack of detail, portraits, casual snapfocus"
+    },
+    {
+        "name": "Sony A7S III",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony A7S III)",
+        "negative_prompt": "poor low-light, HD video, non-filmmakers, daytime photography"
+    },
+    {
+        "name": "Sony A9 II",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony A9 II)",
+        "negative_prompt": "poor capture, single shot,  action"
+    },
+    {
+        "name": "Sony Alpha 1",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony Alpha 1)",
+        "negative_prompt": "entry-level, slow speed, amateur quality"
+    },
+    {
+        "name": "Sony Alpha 1 (Unique Variant)",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony Alpha 1)",
+        "negative_prompt": "amateur, still life, slow subjects, slow burst, imprecise capture"
+    },
+    {
+        "name": "Sony Alpha A7 III",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony Alpha A7 III)",
+        "negative_prompt": "overpriced, average quality images, unreliable performance, beginners, casual users"
+    },
+    {
+        "name": "Sony Alpha A9 II",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony Alpha A9 II)",
+        "negative_prompt": "amateur, slow shooting, unreliable capture, still life photography"
+    },
+    {
+        "name": "Sony Cyber-shot DSC-RX10 IV",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony Cyber-shot DSC-RX10 IV)",
+        "negative_prompt": "short zoom, poor video, portrait photography, close-up subjects"
+    },
+    {
+        "name": "Sony Cyber-shot DSC-W800",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony Cyber-shot DSC-W800)",
+        "negative_prompt": "professional-level, expensive, expert photographers, primary camera"
+    },
+    {
+        "name": "Sony Cyber-shot RX100 VII",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony Cyber-shot RX100 VII)",
+        "negative_prompt": "large-sized, limited zoom, studio work, specialized photography, compromise quality"
+    },
+    {
+        "name": "Sony RX10 IV",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony RX10 IV)",
+        "negative_prompt": "limited zoom, poor capture, close-up photography"
+    },
+    {
+        "name": "Sony RX100 VII",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony RX100 VII)",
+        "negative_prompt": "slow capture, limited zoom,  images"
+    },
+    {
+        "name": "Sony RX100 VII (Unique Fast Capture)",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony RX100 VII)",
+        "negative_prompt": "budget, slow , basic capture, studio photography, static scenes"
+    },
+    {
+        "name": "Sony ZV-1",
+        "prompt": "Photograph of  {prompt}, captured on a (Sony ZV-1)",
+        "negative_prompt": "general use, slow , poor capture,  videos"
+    }
+]
