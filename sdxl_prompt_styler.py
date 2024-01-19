@@ -221,6 +221,8 @@ class SDXLPromptStyler:
                 "text_negative": ("STRING", {"default": "", "multiline": True}),
                 "style": ((styles), ),
                 "log_prompt": ("BOOLEAN", {"default": True, "label_on": "yes", "label_off": "no"}),
+                "style_positive": ("BOOLEAN", {"default": True, "label_on": "yes", "label_off": "no"}),
+                "style_negative": ("BOOLEAN", {"default": True, "label_on": "yes", "label_off": "no"}),
             },
         }
 
@@ -229,11 +231,23 @@ class SDXLPromptStyler:
     FUNCTION = 'prompt_styler'
     CATEGORY = 'utils'
 
-    def prompt_styler(self, text_positive, text_negative, style, log_prompt):
+    def prompt_styler(self, text_positive, text_negative, style, log_prompt, style_positive, style_negative):
         # Process and combine prompts in templates
         # The function replaces the positive prompt placeholder in the template,
         # and combines the negative prompt with the template's negative prompt, if they exist.
         text_positive_styled, text_negative_styled = read_sdxl_templates_replace_and_combine(self.json_data, style, text_positive, text_negative)
+
+        # If style_negative is disabled, set text_negative_styled to text_negative
+        if not style_positive:
+            text_positive_styled = text_positive
+            if log_prompt:
+                print(f"style_positive: disabled")
+
+        # If style_negative is disabled, set text_negative_styled to text_negative
+        if not style_negative:
+            text_negative_styled = text_negative
+            if log_prompt:
+                print(f"style_negative: disabled")
  
         # If logging is enabled (log_prompt is set to "Yes"), 
         # print the style, positive and negative text, and positive and negative prompts to the console

@@ -13,6 +13,12 @@ The node also effectively manages negative prompts. If negative text is provided
 ## Changelog
 This section details the updates and new features committed over time, organized chronologically with the most recent changes at the top.
 
+### Commit date (2024-01-19)
+
+#### New Features
+
+* **SDXL Prompt Styler**: Add toggles to disable styling for positive, negative, or both sentiments (bypass mode)
+
 ### Commit date (2023-08-27)
 
 #### New Features
