@@ -13,6 +13,12 @@ The node also effectively manages negative prompts. If negative text is provided
 ## Changelog
 This section details the updates and new features committed over time, organized chronologically with the most recent changes at the top.
 
+### Commit date (2024-01-26)
+
+#### New Features
+
+* **SDXL Prompt Styler Advanced**: New option to copy the positive G prompt tokens to L, removing duplicates
+
 ### Commit date (2024-01-19)
 
 #### New Features

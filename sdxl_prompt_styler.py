@@ -92,9 +92,9 @@ def split_template_advanced(template: str) -> tuple:
     """
     Splits a template into two parts based on a specific pattern.
     """
-    if "{prompt} ." in template:
-        template_prompt_g, template_prompt_l = template.split("{prompt} .", 1)
-        template_prompt_g = template_prompt_g.strip() + " {prompt}"
+    if " . " in template:
+        template_prompt_g, template_prompt_l = template.split(" . ", 1)
+        template_prompt_g = template_prompt_g.strip()
         template_prompt_l = template_prompt_l.strip()
     else:
         template_prompt_g = template
@@ -121,7 +121,7 @@ def replace_prompts_in_template(template, positive_prompt, negative_prompt):
 
     return positive_result, negative_result
 
-def replace_prompts_in_template_advanced(template, positive_prompt_g, positive_prompt_l, negative_prompt, negative_prompt_to):
+def replace_prompts_in_template_advanced(template, positive_prompt_g, positive_prompt_l, negative_prompt, negative_prompt_to, copy_to_l):
     """
     Replace the placeholders in a given template with the provided prompts and split them accordingly.
     
@@ -131,6 +131,7 @@ def replace_prompts_in_template_advanced(template, positive_prompt_g, positive_p
     - positive_prompt_l (str): The auxiliary positive prompt to be combined in a specific manner.
     - negative_prompt (str): The negative prompt to be combined with any existing negative prompt in the template.
     - negative_prompt_to (str): The negative prompt destination {Both, G only, L only}.
+    - copy_to_l (bool): Copy the G positive prompt to L.
 
     Returns:
     - tuple: A tuple containing the replaced main positive, auxiliary positive, combined positive,  main negative, auxiliary negative, and negative prompts.
@@ -139,7 +140,20 @@ def replace_prompts_in_template_advanced(template, positive_prompt_g, positive_p
 
     text_g_positive = template_prompt_g.replace("{prompt}", positive_prompt_g)
 
-    text_l_positive = f"{template_prompt_l_template}, {positive_prompt_l}" if template_prompt_l_template and positive_prompt_l else template_prompt_l_template or positive_prompt_l
+    text_l_positive = f"{template_prompt_l_template.replace('{prompt}', positive_prompt_g)}, {positive_prompt_l}" if template_prompt_l_template and positive_prompt_l else template_prompt_l_template.replace('{prompt}', positive_prompt_g) or positive_prompt_l
+
+    if copy_to_l and positive_prompt_g and "{prompt}" not in template_prompt_l_template:
+        token_positive_g = list(map(lambda x: x.strip(), text_g_positive.split(",")))
+        token_positive_l = list(map(lambda x: x.strip(), text_l_positive.split(",")))
+
+        # deduplicate common prompt parts
+        for token_g in token_positive_g:
+            if token_g in token_positive_l:
+                token_positive_l.remove(token_g)
+
+        token_positive_g.extend(token_positive_l)
+
+        text_l_positive = ", ".join(token_positive_g)
 
     text_positive = f"{text_g_positive} . {text_l_positive}" if text_l_positive else text_g_positive
 
@@ -179,7 +193,7 @@ def read_sdxl_templates_replace_and_combine(json_data, template_name, positive_p
     else:
         return positive_prompt, negative_prompt
     
-def read_sdxl_templates_replace_and_combine_advanced(json_data, template_name, positive_prompt_g, positive_prompt_l, negative_prompt, negative_prompt_to):
+def read_sdxl_templates_replace_and_combine_advanced(json_data, template_name, positive_prompt_g, positive_prompt_l, negative_prompt, negative_prompt_to, copy_to_l):
     """
     Find a specific template by its name, then replace and combine its placeholders with the provided prompts in an advanced manner.
     
@@ -190,6 +204,7 @@ def read_sdxl_templates_replace_and_combine_advanced(json_data, template_name, p
     - positive_prompt_l (str): The auxiliary positive prompt.
     - negative_prompt (str): The negative prompt to be combined.
     - negative_prompt_to (str): The negative prompt destination {Both, G only, L only}.
+    - copy_to_l (bool): Copy the G positive prompt to L.
 
     Returns:
     - tuple: A tuple containing the replaced and combined main positive, auxiliary positive, combined positive, main negative, auxiliary negative, and negative prompts.
@@ -200,7 +215,7 @@ def read_sdxl_templates_replace_and_combine_advanced(json_data, template_name, p
     template = find_template_by_name(json_data, template_name)
 
     if template:
-        return replace_prompts_in_template_advanced(template, positive_prompt_g, positive_prompt_l, negative_prompt, negative_prompt_to)
+        return replace_prompts_in_template_advanced(template, positive_prompt_g, positive_prompt_l, negative_prompt, negative_prompt_to, copy_to_l)
     else:
         return positive_prompt_g, positive_prompt_l, f"{positive_prompt_g} . {positive_prompt_l}", negative_prompt, negative_prompt, negative_prompt
 
@@ -277,7 +292,8 @@ class SDXLPromptStylerAdvanced:
                 "text_negative": ("STRING", {"default": "", "multiline": True}),
                 "style": ((styles), ),
                 "negative_prompt_to": (["Both", "G only", "L only"], {"default":"Both"}),
-                "log_prompt": ("BOOLEAN", {"default": True, "label_on": "yes", "label_off": "no"}),
+                "copy_to_l": ("BOOLEAN", {"default": False, "label_on": "yes", "label_off": "no"}),
+                "log_prompt": ("BOOLEAN", {"default": False, "label_on": "yes", "label_off": "no"}),
             },
         }
 
@@ -286,11 +302,11 @@ class SDXLPromptStylerAdvanced:
     FUNCTION = 'prompt_styler_advanced'
     CATEGORY = 'utils'
 
-    def prompt_styler_advanced(self, text_positive_g, text_positive_l, text_negative, style, negative_prompt_to, log_prompt):
+    def prompt_styler_advanced(self, text_positive_g, text_positive_l, text_negative, style, negative_prompt_to, copy_to_l, log_prompt):
         # Process and combine prompts in templates
         # The function replaces the positive prompt placeholder in the template,
         # and combines the negative prompt with the template's negative prompt, if they exist.
-        text_positive_g_styled, text_positive_l_styled, text_positive_styled, text_negative_g_styled, text_negative_l_styled, text_negative_styled = read_sdxl_templates_replace_and_combine_advanced(self.json_data, style, text_positive_g, text_positive_l, text_negative, negative_prompt_to)
+        text_positive_g_styled, text_positive_l_styled, text_positive_styled, text_negative_g_styled, text_negative_l_styled, text_negative_styled = read_sdxl_templates_replace_and_combine_advanced(self.json_data, style, text_positive_g, text_positive_l, text_negative, negative_prompt_to, copy_to_l)
  
         # If logging is enabled (log_prompt is set to "Yes"), 
         # print the style, positive and negative text, and positive and negative prompts to the console
