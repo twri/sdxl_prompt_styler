@@ -175,7 +175,7 @@ def replace_prompts_in_template_advanced(template, positive_prompt_g, positive_p
     if copy_to_l and positive_prompt_g and "{prompt}" not in template_prompt_l_template:
         text_l_positive = deduplicate_merge(text_g_positive, text_l_positive)
 
-    text_positive = f"{text_g_positive} . {text_l_positive}" if text_l_positive else text_g_positive
+    text_positive = deduplicate_merge(text_g_positive, text_l_positive) if text_l_positive else text_g_positive
 
     json_negative_prompt = template.get('negative_prompt', "")
     text_negative = f"{json_negative_prompt}, {negative_prompt}" if json_negative_prompt and negative_prompt else json_negative_prompt or negative_prompt
