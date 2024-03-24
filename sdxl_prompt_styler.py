@@ -121,6 +121,36 @@ def replace_prompts_in_template(template, positive_prompt, negative_prompt):
 
     return positive_result, negative_result
 
+def deduplicate_merge(prompt_1, prompt_2):
+    """
+    Merge two prompts, deduplicating the tokens.
+
+    Args:
+    - prompt1 (str): The first prompt.
+    - prompt2 (str): The second prompt.
+
+    Returns:
+    - str: The merged and deduplicated prompt.
+    """
+    if not prompt_2:
+        return prompt_1
+    elif not prompt_1:
+        return prompt_2
+
+    token_prompt_1 = list(map(lambda x: x.strip(), prompt_1.split(",")))
+    token_prompt_2 = list(map(lambda x: x.strip(), prompt_2.split(",")))
+
+    # deduplicate common prompt parts
+    for token in token_prompt_1:
+        if token in token_prompt_2:
+            token_prompt_2.remove(token)
+
+    token_prompt_1.extend(token_prompt_2)
+
+    prompt_out = ", ".join(token_prompt_1)
+
+    return prompt_out
+
 def replace_prompts_in_template_advanced(template, positive_prompt_g, positive_prompt_l, negative_prompt, negative_prompt_to, copy_to_l):
     """
     Replace the placeholders in a given template with the provided prompts and split them accordingly.
@@ -143,19 +173,9 @@ def replace_prompts_in_template_advanced(template, positive_prompt_g, positive_p
     text_l_positive = f"{template_prompt_l_template.replace('{prompt}', positive_prompt_g)}, {positive_prompt_l}" if template_prompt_l_template and positive_prompt_l else template_prompt_l_template.replace('{prompt}', positive_prompt_g) or positive_prompt_l
 
     if copy_to_l and positive_prompt_g and "{prompt}" not in template_prompt_l_template:
-        token_positive_g = list(map(lambda x: x.strip(), text_g_positive.split(",")))
-        token_positive_l = list(map(lambda x: x.strip(), text_l_positive.split(",")))
+        text_l_positive = deduplicate_merge(text_g_positive, text_l_positive)
 
-        # deduplicate common prompt parts
-        for token_g in token_positive_g:
-            if token_g in token_positive_l:
-                token_positive_l.remove(token_g)
-
-        token_positive_g.extend(token_positive_l)
-
-        text_l_positive = ", ".join(token_positive_g)
-
-    text_positive = f"{text_g_positive} . {text_l_positive}" if text_l_positive else text_g_positive
+    text_positive = deduplicate_merge(text_g_positive, text_l_positive) if text_l_positive else text_g_positive
 
     json_negative_prompt = template.get('negative_prompt', "")
     text_negative = f"{json_negative_prompt}, {negative_prompt}" if json_negative_prompt and negative_prompt else json_negative_prompt or negative_prompt
