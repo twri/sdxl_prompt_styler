@@ -1,0 +1,14 @@
+[project]
+name = "sdxl_prompt_styler"
+description = "SDXL Prompt Styler is a node that enables you to style prompts based on predefined templates stored in a JSON file."
+version = "1.0.0"
+license = "LICENSE"
+
+[project.urls]
+Repository = "https://github.com/twri/sdxl_prompt_styler"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "sdxl_prompt_styler"
+Icon = ""
